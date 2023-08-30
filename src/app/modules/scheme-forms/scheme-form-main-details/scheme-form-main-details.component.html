@@ -1,0 +1,56 @@
+<form class="container-fluid" [formGroup]="formSchemeDetails" (ngSubmit)="validateForm()">
+  <!-- <div class="d-flex align-items-center my-2">
+    <hr class="hr-min-length hr-wd-clr">
+    <span class="medium text-uppercase px-2">Main details</span>
+    <hr class="flex-grow-1 hr-wd-clr ">
+  </div> -->
+  <div class="row pt-2">
+    <div class="col-sm-4">
+      <div class="user-box row px-3">
+        <input type="text" formControlName="schemeName" required />
+        <label>Scheme Name &nbsp;<span class="text-danger">*</span></label>
+        <div class="text-danger"
+          *ngIf="formSchemeDetails.get('schemeName')?.invalid && (formSchemeDetails.get('schemeName')?.touched || formSubmitted)">
+          {{getErrorMessage('schemeName')}}</div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="user-box row px-3">
+        <input type="text" formControlName="schemeDescription" required>
+        <label>Scheme Description &nbsp;<span class="text-danger">*</span></label>
+        <div class="text-danger"
+          *ngIf="formSchemeDetails.get('schemeDescription')?.invalid && (formSchemeDetails.get('schemeDescription')?.touched || formSubmitted)">
+          {{getErrorMessage('schemeDescription')}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-2 align-items-center">
+    <div class="col-sm-2 px-4">
+      <span class="fs-5 fw-bold" [innerText]="'Date : '"></span>
+    </div>
+    <div class="col-sm-5">
+      <mat-form-field appearance="standard" class="wd-100-ui ps-3 pb-2" (click)="DPStart.open()">
+        <mat-label>Starting Date</mat-label>
+        <input matInput [matDatepicker]="DPStart" formControlName="schemeStart" [min]="thisDay" readonly>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="DPStart"></mat-datepicker-toggle>
+        <mat-datepicker #DPStart></mat-datepicker>
+        <mat-error *ngIf="formSchemeDetails.get('schemeStart')?.invalid">{{getErrorMessage('schemeStart')}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-5">
+      <mat-form-field appearance="standard" class="wd-100-ui ps-3 pb-2" (click)="DPEnd.open()">
+        <mat-label>Ending Date</mat-label>
+        <input matInput [matDatepicker]="DPEnd" formControlName="schemeEnd" [min]="thisDay" readonly>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="DPEnd"></mat-datepicker-toggle>
+        <mat-datepicker #DPEnd></mat-datepicker>
+        <mat-error *ngIf="formSchemeDetails.get('schemeEnd')?.invalid">{{getErrorMessage('schemeEnd')}}</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center p-5 my-3">
+    <button *ngIf="!viewOnly" mat-button class="click-ui btn-primary rounded-3 px-4">{{isTran?'Continue':'Save'}}</button>
+    <button type="button" *ngIf="viewOnly" mat-button class="click-ui btn-primary rounded-3 px-4" (click)="goToNextForm()">NEXT</button>
+  </div>
+</form>

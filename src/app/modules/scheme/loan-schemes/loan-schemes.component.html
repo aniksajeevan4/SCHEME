@@ -1,0 +1,68 @@
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink=".">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Loan Schemes</li>
+    </ol>
+</nav>
+<div class="card" style="min-height: 65vh;">
+    <div class="card-body">
+        <div class="row mt-3 me-3">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-3 col-md-3 col-sm-5 col-12">
+                    <mat-form-field appearance="standard" class="col-12" >
+                        <mat-label>Product</mat-label>
+                        <mat-select [(ngModel)]="selectedProduct">
+                            <ng-container *ngIf="productList.length < 1; else Product">
+                                <mat-option disabled>No Data Found</mat-option>
+                            </ng-container>
+                            <ng-template #Product>
+                                <mat-option disabled>Select a Loan Product</mat-option>
+                                <mat-option *ngFor="let Product of productList" [value]="Product.productId"
+                                    [innerText]="Product.productCode"></mat-option>
+                            </ng-template>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-5  col-12">
+                    <div class="user-box row">
+                        <ng-select [items]="schemes" class="custom pb-1" [searchable]="true" [multiple]="false"
+                            bindValue="schemeId" bindLabel="schemeName" placeholder="Search Scheme"
+                          >
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="col-lg-1 col-md-2 col-sm-2 col-12 py-2">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-12  col-12 d-flex justify-content-end">
+                    <button class="btn btn-success" (click)="newScheme()">Add Scheme</button>
+                </div>
+            </div>
+            <div class="table-responsive mt-5" style="max-height: 400px; overflow-y: auto;">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="header">
+                            <th class="text-center">Product</th>
+                            <th class="text-center">Scheme Code</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Effective From</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-align-center" *ngFor="let productList of ProductDetailsList">
+                            <td>{{ productList.product }}</td>
+                            <td>{{ productList.schemeCode }}</td>
+                            <td>{{ productList.name }}</td>
+                            <td>{{ productList.effectiveFrom | date }}</td>
+                            <td class="text-center">
+                                <i class="feather icon-edit mx-2"></i>
+                                <i class="mdi mdi-delete mx-2"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

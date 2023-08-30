@@ -1,0 +1,86 @@
+<form class="container-fluid my-3" [formGroup]="formSchemeLimit">
+  <div class="card">
+    <div class="card-body">
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 pb-2 ">
+          <div class="user-box row  px-3 ">
+            <input type="text" formControlName="minTerm" required="" maxlength="2" />
+            <label>Min Term</label>
+            <small class="text-danger"
+              *ngIf="submitted && formSchemeLimit.get('minTerm')?.invalid">{{getErrorMessage('minTerm')}}</small>
+          </div>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6 col-sm-6 pb-2 ">
+          <div class="user-box row  px-3 ">
+            <input type="text" formControlName="maxTerm" required="" maxlength="2" />
+            <label>Max Term</label>
+            <small class="text-danger"
+              *ngIf="submitted && formSchemeLimit.get('maxTerm')?.invalid">{{getErrorMessage('maxTerm')}}</small>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 pb-2 ">
+          <div class="user-box row  px-3 ">
+            <input type="text" formControlName="minAmount" required="" maxlength="16" />
+            <label>Min Amount</label>
+            <small class="text-danger"
+              *ngIf="submitted && formSchemeLimit.get('minAmount')?.invalid">{{getErrorMessage('minAmount')}}</small>
+          </div>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6 col-sm-6 pb-2 ">
+          <div class="user-box row  px-3 ">
+            <input type="text" formControlName="maxAmount" required="" maxlength="16" />
+            <label>Max Amount</label>
+            <small class="text-danger"
+              *ngIf="submitted && formSchemeLimit.get('maxAmount')?.invalid">{{getErrorMessage('maxAmount')}}</small>
+          </div>
+        </div>
+
+      </div>
+      <!-- <div class="row">
+            <mat-form-field appearance="standard" class="col mx-3">
+              <mat-label>Min Term</mat-label>
+              <input matInput placeholder="Min Term" formControlName="minTerm" maxlength="2">
+              <mat-error
+                *ngIf="formSchemeLimit.get('minTerm')?.invalid">{{getErrorMessage('minTerm')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="standard" class="col mx-3">
+              <mat-label>Max Term</mat-label>
+              <input matInput placeholder="Max Term" formControlName="maxTerm" maxlength="2">
+              <mat-error
+                *ngIf="formSchemeLimit.get('maxTerm')?.invalid">{{getErrorMessage('maxTerm')}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field appearance="standard" class="col mx-3">
+              <mat-label>Min Amount</mat-label>
+              <input matInput placeholder="Min Amount" formControlName="minAmount" maxlength="16">
+              <mat-error
+                *ngIf="formSchemeLimit.get('minAmount')?.invalid">{{getErrorMessage('minAmount')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="standard" class="col mx-3">
+              <mat-label>Max Amount</mat-label>
+              <input matInput placeholder="Max Amount" formControlName="maxAmount" maxlength="16">
+              <mat-error
+                *ngIf="formSchemeLimit.get('maxAmount')?.invalid">{{getErrorMessage('maxAmount')}}</mat-error>
+            </mat-form-field>
+          </div> -->
+
+      <!-- <div class="row my-3 justify-content-center">
+        <button class="col-1 btn btn-success" (click)="postSchemeLimitDetails()">save</button>
+      </div> -->
+
+    </div>
+  </div>
+</form>
+
+
+

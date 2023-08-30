@@ -1,0 +1,20 @@
+::ng-deep aw-wizard-navigation-bar.horizontal ul.steps-indicator li a .label{
+
+    font-size: 1vw;
+}
+
+::ng-deep aw-wizard-navigation-bar.horizontal ul.steps-indicator li a .label {
+    font-size: 1vw;
+}
+
+aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.done .step-indicator {
+    background-color: #38ef38;
+}
+
+::ng-deep aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.optional .step-indicator {
+    background-color: #38ef38;
+}
+
+::ng-deep aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.current .step-indicator {
+    background-color: #2e10ef;
+}

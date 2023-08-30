@@ -1,0 +1,59 @@
+<form class="container-fluid" [formGroup]="formSchemeDetails" (ngSubmit)="Submit()">
+    <div class="card">
+     <div class="card-body">
+    <!-- (ngSubmit)="validateForm()"> -->
+    <div class="row pt-2">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="user-box row px-3">
+            <input type="text" formControlName="schemeName" autoCaps required="" maxlength="10"
+                (keyup)="searchGlCode($event)">                 
+           <label>Scheme Code &nbsp;<span class="text-danger">*</span></label>
+           <div *ngIf="glCodeSearch" class="text-danger">
+            <div  *ngIf="glCodeSearch.statusCode==200 && glCodeSearch.result=='true'">{{glCodeSearch.message}}</div><br>
+           </div>
+            <div class="text-danger"
+            *ngIf="formSchemeDetails.get('schemeName')?.invalid && (formSchemeDetails.get('schemeName')?.touched || formSubmitted)">
+            {{getErrorMessage('schemeName')}}
+          </div>          
+          </div>
+       </div>
+  
+      <div class="col-sm-6">
+        <div class="user-box row px-3">
+          <input type="text" formControlName="schemeDescription" required maxlength="30" autoCaps >
+          <label>Scheme Description &nbsp;<span class="text-danger">*</span></label>
+          <div class="text-danger"
+            *ngIf="formSchemeDetails.get('schemeDescription')?.invalid && (formSchemeDetails.get('schemeDescription')?.touched || formSubmitted)">
+            {{getErrorMessage('schemeDescription')}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-2">
+      <div class="col-md-6 col-sm-6" style="margin-bottom: 30px;">
+        <div class="row">
+          <label for="selectGLCode" class="customeLabel" *ngIf="formSchemeDetails.get('schemeTransactionLabel')?.value">GL Code&nbsp;<span class="text-danger">*</span></label>
+          <ng-select id="selectGLCode"  [items]="dropDownGL"  [searchable]="true" [multiple]="false"
+            bindValue="glCode" bindLabel="transactionLabel" placeholder="GL Code" formControlName="schemeTransactionLabel"(keyup)="keyup($event)">
+          </ng-select>
+        </div>
+        <div class="text-danger mt-3" 
+          *ngIf="formSchemeDetails.get('schemeTransactionLabel')?.invalid && (formSchemeDetails.get('schemeTransactionLabel')?.touched || formSubmitted)">
+          {{getErrorMessage('schemeTransactionLabel')}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div  class="col-12 d-flex justify-content-center my-3">
+        <button *ngIf="!viewOnly" mat-button
+        class="click-ui btn btn-primary">{{isTran?'Continue':'Save'}}</button>
+      <button type="button" *ngIf="viewOnly && fetchedProductId==1" mat-button class="click-ui btn btn-primary"
+        (click)="goToNextForm()">Next</button>
+        <!-- <button type="button" *ngIf="viewOnly && fetchedProductId==11" mat-button class="click-ui btn btn-primary"
+        (click)="goToNextForm()">Next</button> -->
+      </div>
+          <!-- *ngIf="!viewOnly" -->
+    </div>
+   </div>
+   </div>
+  </form>

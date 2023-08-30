@@ -1,0 +1,191 @@
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="modal-header">
+            <span class="fw-bold fs-5">Advance Search</span>
+            <button type="button" class="btn-close cls-btn" mat-dialog-close aria-label="Close"></button>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form action="" [formGroup]="searchForm">
+                    <div class="row pt-2">
+                        <div class=" col-lg-2 col-md-2 col-sm-2 pb-4 mt-1 ">
+                            <div class="user-box row px-3 ">
+                                <ng-select [items]="branches" class="custom" [searchable]="true" [multiple]="false"
+                                    bindValue="branchId" bindLabel="branchName" placeholder="Select a branch"
+                                    formControlName="branch" (keyup)="keyup($event)">
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 pb-2">
+                            <div class="user-box row px-3 ">
+                                <input type="text" formControlName="id" required="" maxlength="30" />
+                                <label>Customer Id</label>
+                                <div class="text-danger" *ngIf="Validation['id'].errors">
+                                    <small *ngIf="Validation['id'].errors['pattern']">
+                                        Enter a valid Customer Id
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 pb-2">
+                            <div class="user-box row px-3">
+                                <input type="text" formControlName="name" required maxlength="50" />
+                                <label>Customer Name</label>
+                                <div class="text-danger" *ngIf="Validation['name'].errors">
+                                    <small *ngIf="Validation['name'].errors['pattern']">
+                                        Enter valid Customer Name
+                                    </small>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-2 pb-2">
+                            <div class="user-box row px-3">
+                                <input type="text" formControlName="phone" required maxlength="10" />
+                                <label>Phone Number</label>
+                                <div class="text-danger" *ngIf="Validation['phone'].errors">
+                                    <small *ngIf="Validation['phone'].errors['pattern']">
+                                        Enter valid phone number
+                                    </small>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class=" col-lg-2 col-md-2 col-sm-2 pb-2">
+                            <div class="user-box row px-3">
+                                <input type="text" formControlName="aadhar" required maxlength="20" />
+                                <label>Document Number</label>
+                                <div class="text-danger" *ngIf="Validation['aadhar'].errors">
+                                    <small *ngIf="Validation['aadhar'].errors['pattern']">
+                                        Enter valid Document Number
+                                    </small>
+                                </div>
+                                <!-- 
+                                <div class="text-danger" *ngIf="Validation.aadhar.errors">
+                                    <small *ngIf="Validation.aadhar.errors.pattern">
+                                        Enter valid Document Number
+                                    </small>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-2 pb-2">
+                            <div class="user-box row px-3">
+                                <select formControlName="statusId" required="">
+                                    <option value="1">Active</option>
+                                    <option value="2">Closed</option>
+                                </select>
+                                <label>Status</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-end">
+                            <div class="d-flex align-items-end">
+                                <!-- <div class="me-3" style="color: #213b91" *ngIf="hide && levelId==4">
+                              <input id="glbsrch" type="checkbox" (change)="onCheckboxChange($event)" />Global search
+                            </div> -->
+                                <div class="mx-2">
+                                    <button class="btn btn-success btn-block" (click)="searchGet()">
+                                        Search
+                                    </button>
+                                </div>
+                                <div class="mx-2">
+                                    <button class="btn btn-secondary btn-block" (click)="clearSearch()">
+                                        Clear
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-danger" *ngIf="searchMessage">{{ searchMessage }}</p>
+                </form>
+                <br>
+                <div class="text-danger d-flex justify-content-center" id="alert-message"></div> <br>
+                <div class="text-danger d-flex justify-content-center" id="alert-messages"></div>
+                <div class="table-responsive">
+                    <div class="table-responsive" style="overflow-x: unset" *ngIf="hideTable"><br>
+
+                        <!-- <div>
+                            <label class="mx-2"> Show</label>
+                            <select style="height: 30px; width: 45px; font-size: 13px; padding: 5px"
+                                (change)="onTableSizeChange($event)">
+                                <option *ngFor="let size of tableSizes">
+                                    {{ size }}
+                                </option>
+                            </select>
+                            <label class="mx-2">entries</label>
+                        </div> -->
+                        <table class="table table-bordered table-striped mt-3">
+                            <thead style="background-color: black">
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Customer Id</th>
+                                    <th class="text-center">Customer Name</th>
+                                    <th class="text-center">Phone Number</th>
+                                    <th class="text-center">Branch Name</th>
+                                    <th class="text-center">Occupation</th>
+                                    <th class="text-center">Date of birth</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="
+                  let customer of search
+                    | paginate
+                      : {
+                          itemsPerPage: tableSize,
+                          currentPage: page,
+                          totalItems: count
+                        };
+                  let i = index
+                ">
+                                    <td class="text-center">
+                                        <input type="checkbox" [checked]="customer.selected"
+                                            (change)="onCheckboxChange(i,customer.sequenceNumber)">
+                                    </td>
+                                    <td class="text-center">{{ customer.sequenceNumber }}</td>
+                                    <td class="text-center">{{ customer.firstName }}</td>
+                                    <td class="text-center">{{ customer.mobileNumber }}</td>
+                                    <td class="text-center">{{ customer.homeBranch }}</td>
+                                    <td class="text-center">{{ customer.occupation }}</td>
+                                    <td class="text-center">{{ customer.dob }}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row pb-2">
+                            <div class="d-flex justify-content-between">
+                                <div [ngClass]="['col d-flex align-items-center justify-content-start', ]">
+                                    <label class="mx-2"> Show</label>
+                                    <select style="height: 30px; width: 45px; font-size: 13px; padding: 5px"
+                                        (change)="onTableSizeChange($event)">
+                                        <option *ngFor="let size of tableSizes">
+                                            {{ size }}
+                                        </option>
+                                    </select>
+                                    <label class="mx-2">entries</label>
+                                </div>
+                                <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                    (pageChange)="onTableDataChange($event)"
+                                    class="d-flex justify-content-end mt-2"></pagination-controls>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="!hideTable" class="d-flex justify-content-center mt-3">
+                    No data found
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary click-ui btn-100-ui" #selectButton
+        [disabled]="!customerId || !anyCheckboxSelected()" (click)="hasSelected()">
+        Select
+    </button>
+    <button type="button" class="btn btn-secondary click-ui btn-100-ui" (click)="closeDialog()">Close</button>
+</div>

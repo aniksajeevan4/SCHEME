@@ -1,0 +1,43 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: black;
+}
+
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgb(34, 34, 34)!important;
+    // opacity: 1!important;
+  }
+  
+  //mat-input focused color
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: rgb(28, 67, 124)!important;
+  }
+  
+  // mat-label normal state style
+  ::ng-deep .mat-form-field-label {
+    color: rgb(34, 34, 34)!important;
+    // color: $mainColor!important;
+  }
+  
+  // mat-label focused style
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: rgb(28, 67, 124)!important;
+  }
+  
+  
+  ::ng-deep .mat-form-field-appearance-standard .mat-form-field-underline {
+    height: 0.5px;
+}
+// ::ng-deep .row {
+//   margin-left: 0; /* Disable the original margin-left */
+// }
+.user-box label.ng-dirty ,
+.user-box label.ng-touched ,
+.user-box label.ng-invalid {
+  top: -20px;
+  left: 0;
+  color: #999;
+  font-size: 12px;
+}

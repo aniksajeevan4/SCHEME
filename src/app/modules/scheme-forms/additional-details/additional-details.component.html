@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-body">
+      <form class="container-fluid" [formGroup]="formAdditionalDetails" (ngSubmit)="SubmitForm()">  
+        <div class="row pt-2"> 
+            <div class="row pt-4 align-items-center">
+                <div class="col-sm-3">
+                  <mat-checkbox formControlName="schemeRefreshAllowed" (change)="onCheckboxChange($event)">Refresh Allowed</mat-checkbox>
+                </div>
+                <div class="col-sm-3 pb-3">
+                    <mat-form-field appearance="standard" style="width: 100%;">
+                      <mat-label>Refresh To</mat-label>
+                      <mat-select formControlName="schemeRefreshTo" multiple>
+                        <ng-container *ngIf="dropDownRefreshTo.length < 1; else showRefreshToTypes">
+                          <option disabled>No Data Found</option>
+                        </ng-container>
+                        <ng-template #showRefreshToTypes >
+                         <mat-option *ngFor="let refreshTo of dropDownRefreshTo"
+                             value="{{refreshTo.schemeId}}">{{refreshTo.schemeCode}}</mat-option>
+                        </ng-template>
+                      </mat-select>
+                      <mat-error
+                        *ngIf="valrefresh">
+                        Field required.</mat-error>
+                    </mat-form-field>
+                </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center my-3">
+            <button *ngIf="!viewOnly" class="btn btn-primary mx-2 mt-3" style="width: 100px">{{isTran?'Continue':'Save'}}</button>
+            <p *ngIf="viewOnly" class="btn me-2" type="button">
+              <i class="mdi mdi-check-circle" style="color: green;"></i>Viewed successfully
+            </p>
+        </div>
+        </div>
+        </form>
+        </div>
+        </div>

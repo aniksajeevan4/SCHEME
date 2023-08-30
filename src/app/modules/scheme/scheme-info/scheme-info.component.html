@@ -1,0 +1,171 @@
+<div class="modal-header">
+  <span class="fw-bold fs-5">Scheme Details</span>
+  <button type="button" class="btn-close cls-btn" (click)="closeDialog()" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <ng-container *ngIf="scheme; else elseTemplate">
+    <table class="table table-bordered table-hover">
+      <thead class="header">
+        <tr class="align-middle">
+          <th scope="col">Title</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="align-middle">
+          <th scope="row" [innerText]="'Scheme Name'"></th>
+          <td
+            [innerText]="scheme.schemeDetails.loanScheme?(scheme.schemeDetails.loanScheme.name?scheme.schemeDetails.loanScheme.name:'Nil'):'Nil'">
+          </td>
+        </tr>
+
+        <tr class="align-middle">
+          <th scope="row" [innerText]="'Min Amount'"></th>
+          <td class="col"
+            [innerText]="scheme.schemeLimitDefDetails?(scheme.schemeLimitDefDetails.minAmount? (scheme.schemeLimitDefDetails.minAmount|currency:'INR'):'Nil'):'Nil'">
+          </td>
+
+        </tr>
+
+        <tr class="align-middle">
+          <th scope="row" [innerText]="'Max Amount'"></th>
+          <td class="col"
+            [innerText]="scheme.schemeLimitDefDetails?(scheme.schemeLimitDefDetails.minAmount?(scheme.schemeLimitDefDetails.maxAmount|currency:'INR'):'Nil'):'Nil'">
+          </td>
+        </tr>
+
+        <tr class="align-middle">
+          <th scope="row" [innerText]="'Start Date'"></th>
+          <td class="col"
+            [innerText]="scheme.schemeDetails.loanScheme?(scheme.schemeDetails.loanScheme.startDate?(scheme.schemeDetails.loanScheme.startDate| date:'dd MMM yyyy'):'Nil'):'Nil'">
+          </td>
+        </tr>
+
+        <tr class="align-middle">
+          <th scope="row" [innerText]="'End Date'"></th>
+          <td class="col"
+            [innerText]="scheme.schemeDetails.loanScheme?(scheme.schemeDetails.loanScheme.endDate ? (scheme.schemeDetails.loanScheme.endDate| date:'dd MMM yyyy'):'Nil'):'Nil'">
+          </td>
+        </tr>
+        <tr class="align-middle">
+          <th scope="row" [innerText]="'Min Term'"></th>
+          <td class="col"
+            [innerText]="(scheme.schemeLimitDefDetails ? ((scheme.schemeLimitDefDetails.minTerm || scheme.schemeLimitDefDetails.minTerm==0) ? scheme.schemeLimitDefDetails.minTerm : 'Nillll') : 'Nil') + ' (' + (scheme.schemeLimitDefDetails ? scheme.schemeLimitDefDetails.durationType : '') + ')'">
+          </td>
+        </tr>
+        <tr class="align-middle">
+          <th scope="row" [innerText]="'Max Term'"></th>
+          <td class="col"
+            [innerText]="(scheme.schemeLimitDefDetails ? (scheme.schemeLimitDefDetails.maxTerm ? scheme.schemeLimitDefDetails.maxTerm : 'Nil') : 'Nil') + ' (' + (scheme.schemeLimitDefDetails ? scheme.schemeLimitDefDetails.durationType : '') + ')'">
+          </td>
+        </tr>
+
+        <tr class="align-middle">
+          <th scope="row" [innerText]="'Min Age'"></th>
+          <td class="col"
+            [innerText]="scheme.schemeDetails.loanScheme?(scheme.schemeDetails.loanScheme.minAge?scheme.schemeDetails.loanScheme.minAge:'Nil'):'Nil'">
+          </td>
+        </tr>
+
+        <tr class="align-middle">
+          <th scope="row" [innerText]="'Max Age'"></th>
+          <td class="col"
+            [innerText]="scheme.schemeDetails.loanScheme?(scheme.schemeDetails.loanScheme.maxAge?scheme.schemeDetails.loanScheme.maxAge:'Nil'):'Nil'">
+          </td>
+        </tr>
+
+        <tr class="align-middle">
+          <th scope="row" [innerText]="'Allowed rate/gm(%)'"></th>
+          <td class="col"
+            [innerText]="scheme.schemeLimitDefDetails?(scheme.schemeLimitDefDetails.perGramRate):'Nil'?(scheme.schemeLimitDefDetails.perGramRate?(scheme.schemeLimitDefDetails.perGramRate|currency:'INR'):'Nil'):'Nil'">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <div class="row">
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'Scheme Id :'"></span>
+          <span class="col" [innerText]="scheme.schemeId"></span>
+        </span>
+      </div>
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'Scheme Name :'"></span>
+          <span class="col" [innerText]="scheme.schemeName"></span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'Min Amount :'"></span>
+          <span class="col" [innerText]="scheme.minAmount|currency:'INR'"></span>
+        </span>
+      </div>
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'Max Amount :'"></span>
+          <span class="col" [innerText]="scheme.maxAmount|currency:'INR'"></span>
+        </span>
+      </div>
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'Start Date :'"></span>
+          <span class="col" [innerText]="scheme.startDate| date:'dd MMM yyyy'"></span>
+        </span>
+      </div>
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'End Date :'"></span>
+          <span class="col" [innerText]="scheme.endDate| date:'dd MMM yyyy'"></span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'Min Term :'"></span>
+          <span class="col" [innerText]="scheme.minTerm"></span>
+        </span>
+      </div>
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'Max Term :'"></span>
+          <span class="col" [innerText]="scheme.maxTerm"></span>
+        </span>
+      </div>
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'Min Age :'"></span>
+          <span class="col" [innerText]="scheme.minAge"></span>
+        </span>
+      </div>
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'Min Age :'"></span>
+          <span class="col" [innerText]="scheme.minAge"></span>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 p-2">
+        <span class="row">
+          <span class="col fw-bold" [innerText]="'Allowed rate/gm :'"></span>
+          <span class="col" [innerText]="scheme.allowedRPG"></span>
+        </span>
+      </div>
+      <div class="col-lg-3 col-md-6 p-2"></div>
+      <div class="col-lg-3 col-md-6 p-2"></div>
+      <div class="col-lg-3 col-md-6 p-2"></div>
+    </div> -->
+  </ng-container>
+  <ng-template #elseTemplate>
+    <app-no-data [noDataTitle]="'No Scheme details Available'"></app-no-data>
+  </ng-template>
+
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary click-ui btn-100-ui" (click)="closeDialog()">Close</button>
+</div>

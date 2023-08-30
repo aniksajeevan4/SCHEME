@@ -1,0 +1,62 @@
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink=".">Ornaments Master</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ornaments</li>
+    </ol>
+</nav>
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form action="" [formGroup]="oranamentMaster">
+                    <div class="row mt-3">
+                        <div class="row pt-2">
+                            <div class="col-lg-4 col-md-6 col-sm-6 pb-2">
+                                <div class="user-box  row px-3 ">
+                                    <input type="text" required="" formControlName="name">
+                                    <label>Name </label>
+                                    <div class="text-danger" *ngIf=" submitted && oranamentMaster.get('name')?.invalid">
+                                        {{getErrorMessage('name')}}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 pb-2">
+                                <div class="user-box  row px-3 ">
+                                    <input type="text" required="" formControlName="ltv">
+                                    <label>LTV </label>
+                                    <div class="text-danger" *ngIf=" submitted && oranamentMaster.get('ltv')?.invalid">
+                                        {{getErrorMessage('ltv')}}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                                <div class="user-box row px-3">
+                                    <input type="date" [max]="maxFromDate" formControlName="date" />
+                                    <label> From Date</label>
+                                    <div class="text-danger" *ngIf=" submitted && oranamentMaster.get('date')?.invalid">
+                                        {{getErrorMessage('date')}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 pb-2">
+                            <input type="checkbox" id="instruction-checkbox"
+                                (change)="toggleInstructionContainer($event)">
+                            <label for="instruction-checkbox">Specific Instruction Branch</label>
+                            <div class="col-lg-3 col-md-6 col-sm-6 pb-2" id="instruction-container"
+                                [hidden]="!instructionContainerVisible">
+                                <label for="instruction-textarea">Instructions:</label>
+                                <textarea id="instruction-textarea" rows="4" cols="38"></textarea>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class=" d-flex justify-content-end col-lg-7  my-3">
+                        <button class=" btn btn-primary mx-2" (click)="submitForm()">Save</button>
+                        <button class=" btn btn-secondary mx-2">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

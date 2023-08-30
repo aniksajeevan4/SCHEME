@@ -1,0 +1,238 @@
+<div class="row mt-3">
+  <div class="col-12">
+
+    <form [formGroup]="InterestConfigForm" (ngSubmit)="Submit()">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <div class="row pt-2">
+            <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+              <div class="user-box  row px-3 ">
+                <input type="date" formControlName="EffetivefromDate"  placeholder="" [min]="TodayDate" max="9999-12-31"  />
+                <label>Effetive From Date</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('EffetivefromDate')?.invalid && submitted">{{getErrorMessage('EffetivefromDate')}}</small>
+              </div>
+            </div>
+          </div> -->
+
+          <div  class="col-lg-6 col-md-5 col-sm-5 pb-2">
+            <div class=" row px-3 ">
+            <mat-form-field appearance="standard" class="wd-100-ui ps-3 pb-3" (click)="DPStart.open()"  hideRequiredMarker="true">
+              <mat-label>Effective Date</mat-label>
+              <input matInput [matDatepicker]="DPStart" formControlName="EffetivefromDate"  [min]="TodayDate" max="9999-12-31" readonly>
+              <mat-datepicker-toggle matSuffix [for]="DPStart"></mat-datepicker-toggle>
+              <mat-datepicker #DPStart></mat-datepicker>
+              <span matSuffix></span> <!-- Add an empty span to override the asterisk -->
+          </mat-form-field>
+          <small class="text-danger mx-3" *ngIf="InterestConfigForm.get('EffetivefromDate')?.invalid && submitted">{{getErrorMessage('EffetivefromDate')}}</small>
+        </div>
+      </div>
+
+          <div class="row pt-2">
+            <div class="col-lg-6 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <select formControlName="interestType" required="">
+                  <option *ngFor="let InterestType of InterestTypeList" value="{{InterestType.interestTypeId}}">
+                    {{InterestType.description}}
+                  </option>
+                </select>
+                <label>Interest Type</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('interestType')?.invalid && submitted">{{getErrorMessage('interestType')}}</small>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <select formControlName="interestComputationType" required="">
+                  <option *ngFor="let interestComputationType of interestComputationType"
+                    value="{{interestComputationType.interestComputationTypeId}}">
+                    {{interestComputationType.description}}
+                  </option>
+                </select>
+                <label>Interest Computation Type</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('interestComputationType')?.invalid && submitted">{{getErrorMessage('interestComputationType')}}</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pt-2">
+            <div class="col-lg-6 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <select formControlName="interestComputationFrequencyAccrued" required="">
+                  <option *ngFor="let interestComputationFrequencyAccrued of interestFrequency"
+                    value="{{interestComputationFrequencyAccrued.frequencyId}}">
+                    {{interestComputationFrequencyAccrued.description}}
+                  </option>
+                </select>
+                <label>Accrued Interest Computation Frequency</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('interestComputationFrequencyAccrued')?.invalid && submitted">{{getErrorMessage('interestComputationFrequencyAccrued')}}</small>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <input type="input" formControlName="MinDays" required  maxlength="4">
+                <label>Min Days</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('MinDays')?.invalid && submitted">{{getErrorMessage('MinDays')}}</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pt-2">
+            <div class="col-lg-6 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <input type="input" formControlName="MinAmount" mask="separator.2" thousandSeparator="," required  maxlength="20">
+                <label>Min Amount</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('MinAmount')?.invalid && submitted">{{getErrorMessage('MinAmount')}}</small>
+              </div>
+            </div>
+ 
+            <div class="col-lg-6 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <select formControlName="interestBasis" required="">
+                  <option *ngFor="let interestBasis of interestBasis" value="{{interestBasis.id}}">
+                    {{interestBasis.interestBasis}}
+                  </option>
+                </select>
+                <label>Interest Basis</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('interestBasis')?.invalid && submitted">{{getErrorMessage('interestBasis')}}</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pt-2">
+            <div class="col-lg-6 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <input type="input" formControlName="RoundingRule" required  maxlength="1">
+                <label>Rounding Rule</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('RoundingRule')?.invalid && submitted">{{getErrorMessage('RoundingRule')}}</small>
+              </div>
+            </div>
+            
+              <!-- <div class="user-box  row px-3 ">
+                <input type="input" formControlName="InterestcalculationProcedure" required  maxlength="20">
+                <label>Interest Calculation Procedure</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('InterestcalculationProcedure')?.invalid && submitted">{{getErrorMessage('InterestcalculationProcedure')}}</small>
+              </div> -->
+              
+              <div class="col-lg-6 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <select formControlName="InterestcalculationProcedure" required="">
+                  <option *ngFor="let InterestcalculationProcedure of InterestcalculationProcedure" value="{{InterestcalculationProcedure.id}}">
+                    {{InterestcalculationProcedure.description}}
+                  </option>
+                </select>
+                <label>Interest Calculation Procedure</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('InterestcalculationProcedure')?.invalid && submitted">{{getErrorMessage('InterestcalculationProcedure')}}</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pt-5">
+            <div class="col-lg-6 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <select formControlName="interestBooking" required="" class="custom-select">
+                  <option value="{{interestcalculationtype[0]?.id}}" [disabled]="true">
+                    {{interestcalculationtype[0]?.description}}
+                  </option>
+                </select>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('interestBooking')?.invalid && submitted">{{getErrorMessage('interestBooking')}}</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="align-items: center;">
+            <div class="col-lg-5 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <select formControlName="interestBookingFrequency" required="">
+                  <option *ngFor="let interestBookingFrequency of interestFrequency"
+                    value="{{interestBookingFrequency.frequencyId}}">
+                    {{interestBookingFrequency.description}}
+                  </option>
+                </select>
+                <label>Interest Booking Frequency</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('interestBookingFrequency')?.invalid && submitted">{{getErrorMessage('interestBookingFrequency')}}</small>
+              </div>
+            </div>
+
+            <div class="col-lg-5 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <select formControlName="TransactionLabelBooking" required="">
+                  <option *ngFor="let TransactionLabelBooking of TransactionLabel" value="{{TransactionLabelBooking.id}}">
+                    {{TransactionLabelBooking.description}}
+                  </option>
+                </select>
+                <label>Transaction Label</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('TransactionLabelBooking')?.invalid && submitted">{{getErrorMessage('TransactionLabelBooking')}}</small>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6 px-4">
+                <input type="checkbox" formControlName="chkReversibleBooking">
+                <label class="px-2">Reversible</label>
+          </div>
+        </div>
+
+            <div class="row pt-5">
+            <div class="col-lg-6 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <select formControlName="interestApplication" required="" class="custom-select">
+                  <option value="{{interestcalculationtype[1]?.id}}" [disabled]="true" selected>
+                    {{interestcalculationtype[1]?.description}}
+                  </option>
+                </select>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('interestApplication')?.invalid && submitted">{{getErrorMessage('interestApplication')}}</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-5 col-md-6 col-sm-6 pb-2">
+              <div class="user-box  row px-3 ">
+                <select formControlName="interestApplicationFrequency" required="">
+                  <option *ngFor="let interestApplicationFrequency of interestFrequency"
+                    value="{{interestApplicationFrequency.frequencyId}}">
+                    {{interestApplicationFrequency.description}}
+                  </option>
+                </select>
+                <label>Interest Application Frequency</label>
+                <small class="text-danger"
+                  *ngIf="InterestConfigForm.get('interestApplicationFrequency')?.invalid && submitted">
+                  {{getErrorMessage('interestApplicationFrequency')}}</small>
+              </div>
+            </div>
+                <div class="col-lg-5 col-md-6 col-sm-6 pb-2">
+                  <div class="user-box  row px-3 ">
+                    <select formControlName="TransactionLabelApplication" required="">
+                      <option *ngFor="let TransactionLabelApplication of TransactionLabel" value="{{TransactionLabelApplication.id}}">
+                        {{TransactionLabelApplication.description}}
+                      </option>
+                    </select>
+                    <label>Transaction Label</label>
+                    <small class="text-danger"
+                      *ngIf="InterestConfigForm.get('TransactionLabelApplication')?.invalid && submitted">{{getErrorMessage('TransactionLabelApplication')}}</small>
+                </div>
+               </div>
+              </div>
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center my-3">
+              <button *ngIf="!viewOnly" class="btn btn-primary mx-2 mt-3" style="width: 100px">{{isTran?'Continue':'Save'}}</button>
+              <button type="button" *ngIf="viewOnly" mat-button class="click-ui btn-primary rounded-3 px-4" (click)="goToNextForm()">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

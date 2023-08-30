@@ -1,0 +1,50 @@
+[
+  {
+    "languageId": 1,
+    "language": "English",
+    "state": 1,
+    "selected": false
+  },
+  {
+    "languageId": 2,
+    "language": "Hindi",
+    "state": 1,
+    "selected": false
+  },
+  {
+    "languageId": 3,
+    "language": "Malayalam",
+    "state": 1,
+    "selected": false
+  },
+  {
+    "languageId": 4,
+    "language": "Tamil",
+    "state": 1,
+    "selected": false
+  },
+  {
+    "languageId": 5,
+    "language": "Kannada",
+    "state": 1,
+    "selected": false
+  },
+  {
+    "languageId": 6,
+    "language": "Telugu",
+    "state": 1,
+    "selected": false
+  },
+  {
+    "languageId": 7,
+    "language": "Gujarathi",
+    "state": 1,
+    "selected": false
+  },
+  {
+    "languageId": 8,
+    "language": "Marathi",
+    "state": 1,
+    "selected": false
+  }
+]

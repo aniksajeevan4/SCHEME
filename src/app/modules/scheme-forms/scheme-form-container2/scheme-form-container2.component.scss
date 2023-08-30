@@ -1,0 +1,10 @@
+::ng-deep .accordion-item {
+  border-width: 1px 0 !important;
+}
+
+::ng-deep .accordion-header {
+  border-width: 0 1px !important;
+  border-style: solid;
+  border-color: rgb(233, 236, 239);
+  border-radius: 2px;
+}

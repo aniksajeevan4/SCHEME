@@ -1,0 +1,155 @@
+<div class="modal-header">
+  <span class="fw-bold fs-5">Interest Details</span>
+  <button type="button" class="btn-close cls-btn" mat-dialog-close aria-label="Close"></button>
+  </div>
+  <div class="row mt-3">
+  <div class="col-12">
+    <form [formGroup]="InterestDefinitionForm">
+      <div class="card">
+      <div class="card-body">
+    <div class="row pt-2">
+      <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+        <div class="user-box  row px-3 ">
+        <input type="text" formControlName="FromDays"  required maxlength="3">
+      <label>From Days</label>
+      <div class="text-danger" *ngIf="InterestDefinitionForm.get('FromDays')?.invalid && submitted">{{getErrorMessage('FromDays')}}</div>
+    </div>
+  </div>
+    <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+    <div class="col user-box row px-3">
+      <input type="text" formControlName="ToDays" required number maxlength="3">
+      <label>To Days</label>
+      <div class="text-danger" *ngIf="InterestDefinitionForm.get('ToDays')?.invalid && submitted">{{getErrorMessage('ToDays')}}</div>
+    </div>
+    </div>
+  </div>
+
+  <div class="row pt-2">
+
+    <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+      <div class="user-box  row px-3 ">
+      <input type="text" formControlName="MinInterestValue" required number mask="separator.2"  maxlength="5" (keyup)="MiddleNumValForInterest()">
+      <label>Min Interest (%)</label>
+      <div class="text-danger" *ngIf="InterestDefinitionForm.get('MinInterestValue')?.invalid && submitted">{{getErrorMessage('MinInterestValue')}}</div>
+    </div>
+    </div>
+    <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+      <div class="col user-box row px-3">
+        <input type="text" formControlName="MaxInterestValue" required number mask="separator.2"  maxlength="5" (keyup)="MiddleNumValForInterest()">
+        <label>Max Interest (%)</label>
+        <div class="text-danger" *ngIf="InterestDefinitionForm.get('MaxInterestValue')?.invalid && submitted">{{getErrorMessage('MaxInterestValue')}}</div>
+      </div>
+      </div>
+  </div>
+    <div class="row pt-2">
+      <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+        <div class="user-box  row px-3 ">
+        <input type="text" formControlName="InterestRate" required number mask="separator.2"  maxlength="5" (keyup)="MiddleNumValForInterest()">
+        <label>Interest Rate (%)</label>
+        <div class="text-danger" *ngIf="InterestDefinitionForm.get('InterestRate')?.invalid && submitted">{{getErrorMessage('InterestRate')}}</div>
+      </div>
+      </div>
+    <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+      <div class="user-box  row px-3 ">
+      <input type="text" formControlName="Rebate" required numbermask="separator.2"  maxlength="5">
+      <label>Rebate (%)</label>
+      <div class="text-danger" *ngIf="InterestDefinitionForm.get('Rebate')?.invalid && submitted">{{getErrorMessage('Rebate')}}</div>
+    </div>
+    </div>
+    </div>
+    <div class="row pt-2">
+    <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+    <div class="col user-box row px-3">
+      <input type="text" formControlName="RebateDays" required number mask="separator.2"  maxlength="5">
+      <label>Rebate Days</label>
+      <div class="text-danger" *ngIf="InterestDefinitionForm.get('RebateDays')?.invalid && submitted">{{getErrorMessage('RebateDays')}}</div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+        <div class="col user-box row px-3">
+      <input type="text" formControlName="GracePeriod" required number  maxlength="2">
+      <label>Grace Period (Days)</label>
+      <div class="text-danger" *ngIf="InterestDefinitionForm.get('GracePeriod')?.invalid && submitted">{{getErrorMessage('GracePeriod')}}</div>
+    </div>
+  </div>
+  </div>
+  <div class="row pt-2">
+  <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+    <div class="col user-box row px-3">
+      <input type="text" formControlName="OverdueInterest" required numbermask="separator.2"  maxlength="5">
+      <label>Overdue Interest (%)</label>
+      <div class="text-danger" *ngIf="InterestDefinitionForm.get('OverdueInterest')?.invalid && submitted">{{getErrorMessage('OverdueInterest')}}</div>
+    </div>
+  </div>
+    <div class="col-lg-6 col-md-5 col-sm-5 pb-2">
+      <div class="user-box  row px-3 ">
+      <input type="text" formControlName="PenalInterest" required number mask="separator.2"  maxlength="5">
+      <label>Penal Interest (%)</label>
+      <div class="text-danger" *ngIf="InterestDefinitionForm.get('PenalInterest')?.invalid && submitted">{{getErrorMessage('PenalInterest')}}</div>
+    </div>
+    </div>
+  </div>
+ <div class="row pt-2">
+  <div class="d-flex justify-content-end">
+    <div class="col-6 d-flex justify-content-end my-3">
+      <button  class="btn btn-success mx-2 mt-3" style="width: 100px" (click)="AddDataToGrid()" (click)="MiddleNumValForInterest()">Add Details</button>
+      <button class="btn btn-secondary mx-2 mt-3" style="width: 100px" style="margin-left: 5px;" (click)="ClearDetails()">Clear Details</button>
+    </div>
+  </div>
+<div  class="table-responsive pt-3">
+  <table class="table table-bordered table-striped mt-3">
+    <thead style="background-color: black;">
+      <tr>
+        <th class="text-center">From Days</th>
+        <th class="text-center">To Days</th>
+        <th class="text-center">Interest Rate (%)</th>
+        <th class="text-center">Min Interest (%)</th>
+        <th class="text-center">Max Interest (%)</th>
+        <th class="text-center">Rebate (%)</th>
+        <th class="text-center">Rebate Days</th>
+        <th class="text-center">Grace Period (Days)</th>
+        <th class="text-center">Overdue Interest Rate (%)</th>
+        <th class="text-center">Penal Interest Rate (%)</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngIf="schemeinterestRatebyid && schemeinterestRatebyid.length === 0">
+        <td colspan="13" class="text-center">
+          <span>Add Interest Definition</span>
+        </td>
+      </tr>
+      <tr style="cursor:pointer;" *ngFor="let schemeinterestRatebyid of schemeinterestRatebyid;let i = index">
+        <td class="text-center">{{schemeinterestRatebyid.fromDays}}</td>
+        <td class="text-center">{{schemeinterestRatebyid.toDays }}</td>
+        <td class="text-center">{{schemeinterestRatebyid.interestRate}}</td>
+        <td class="text-center">{{schemeinterestRatebyid.minInterestValue}}</td>
+        <td class="text-center">{{schemeinterestRatebyid.maxInterestValue}}</td>
+        <td class="text-center">{{schemeinterestRatebyid.rebate}}</td>
+        <td class="text-center">{{schemeinterestRatebyid.rebateDays}}</td>
+        <td class="text-center">{{schemeinterestRatebyid.gracePeriod}}</td>
+        <td class="text-center">{{schemeinterestRatebyid.overdueInterestRate}}</td>
+        <td class="text-center">{{schemeinterestRatebyid.penalInterestRate}}</td>
+        <td class="text-center">
+          <i  class="feather icon-edit mx-2" (click)="editvalues(i)"></i>
+          <i class="mdi mdi-delete mx-2" (click)="Deletevalues(i)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+</div>
+ <div *ngIf="schemeinterestRatebyid && schemeinterestRatebyid.length>=1" class="row">
+  <div class="col-12 d-flex justify-content-center my-3">
+    <button class="btn btn-primary mx-2 mt-3" style="width: 100px" (click)="Submit()" [disabled]="save">Save</button>
+    <button class="btn btn-secondary mx-2 mt-3" style="width: 100px" mat-dialog-close >Close</button>
+   </div>
+</div>
+</div>
+</div>
+</form>
+</div> 
+</div>
+
+
+

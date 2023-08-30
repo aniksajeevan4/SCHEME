@@ -1,0 +1,91 @@
+  <!-- <div class="card mt-2" >
+    <div class="card-body"> -->
+      <div class="row">
+          <mat-form-field appearance="standard" class="col mx-3">
+            <mat-label>Security</mat-label>
+            <mat-select >
+              <ng-container *ngIf="securityList.length < 1; else security">
+                <mat-option disabled>No Data Found</mat-option>
+              </ng-container>
+              <ng-template #security>
+                <mat-option disabled>Select Customer</mat-option>
+                <mat-option *ngFor="let security of securityList" [value]="security.id"
+                  [innerText]="security.title"></mat-option>
+              </ng-template>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="standard" class="col mx-3">
+            <mat-label>Repayment Sequence</mat-label>
+            <mat-select >
+              <ng-container *ngIf="repaymentSequenceList.length < 1; else repaymentSequence">
+                <mat-option disabled>No Data Found</mat-option>
+              </ng-container>
+              <ng-template #repaymentSequence>
+                <mat-option disabled>Select Customer</mat-option>
+                <mat-option *ngFor="let repaymentSequence of repaymentSequenceList" [value]="repaymentSequence.id"
+                  [innerText]="repaymentSequence.title"></mat-option>
+              </ng-template>
+            </mat-select>
+          </mat-form-field>
+          </div>
+
+          <div class="row">
+          <mat-form-field appearance="standard" class="col mx-3">
+            <mat-label>Payment</mat-label>
+            <mat-select >
+              <ng-container *ngIf="paymentList.length < 1; else payment">
+                <mat-option disabled>No Data Found</mat-option>
+              </ng-container>
+              <ng-template #payment>
+                <mat-option disabled>Select Customer</mat-option>
+                <mat-option *ngFor="let payment of paymentList" [value]="payment.id"
+                  [innerText]="payment.title"></mat-option>
+              </ng-template>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="standard" class="col mx-3">
+            <mat-label>Re-Payment</mat-label>
+            <mat-select >
+              <ng-container *ngIf="rePaymentList.length < 1; else rePayment">
+                <mat-option disabled>No Data Found</mat-option>
+              </ng-container>
+              <ng-template #rePayment>
+                <mat-option disabled>Select Customer</mat-option>
+                <mat-option *ngFor="let rePayment of rePaymentList" [value]="rePayment.id"
+                  [innerText]="rePayment.title"></mat-option>
+              </ng-template>
+            </mat-select>
+          </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field appearance="standard" class="col mx-3">
+              <mat-label>Min Tare Weight</mat-label>
+              <input matInput placeholder="Min Tare" >
+              <!-- <mat-error *ngIf="formSchemeDetails.get('schemeMinAge')?.invalid">{{getErrorMessage('schemeMinAge')}}</mat-error> -->
+            </mat-form-field>
+            <mat-form-field appearance="standard" class="col mx-3">
+              <mat-label>Max Tare Weight</mat-label>
+              <input matInput placeholder="Max Tare" >
+              <!-- <mat-error *ngIf="formSchemeDetails.get('schemeMaxAge')?.invalid">{{getErrorMessage('schemeMaxAge')}}</mat-error> -->
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+          <mat-form-field appearance="standard" class="col-lg-6 mx-3">
+            <mat-label>status</mat-label>
+            <mat-select >
+              <ng-container *ngIf="statusList.length < 1; else status">
+                <mat-option disabled>No Data Found</mat-option>
+              </ng-container>
+              <ng-template #status>
+                <mat-option disabled>Select Customer</mat-option>
+                <mat-option *ngFor="let status of securityList" [value]="status.id"
+                  [innerText]="status.title"></mat-option>
+              </ng-template>
+            </mat-select>
+          </mat-form-field>
+      </div>
+  

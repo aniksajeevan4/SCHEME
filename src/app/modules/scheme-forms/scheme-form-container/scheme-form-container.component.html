@@ -1,0 +1,104 @@
+<nav class="page-breadcrumb"  *ngIf="!isViewOnly">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="scheme"><a routerLink="/scheme">Schemes</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Schemes</li>
+  </ol>
+</nav>
+<div class="card" style="min-height: 65vh;">
+  <div class="card-body">
+    <div class="wd-ht-100-ui d-flex overflow-hidden dis-scroll-ui">
+      <div class="flex-grow-1 d-flex flex-column p-3 overflow-auto  en-scroll-ui">
+            <!-- <button (click)="setFormCompleteStatus(currentFormId)" class="btn">next</button> -->
+            <form [formGroup]="formPreScheme" *ngIf="schemeFormDetails && !isViewOnly"
+          class="row" (click)="getPreSchemeDetails()">
+          <mat-form-field appearance="standard" style="width:100%" >
+
+            <mat-label>Loan Product</mat-label>
+            <mat-select formControlName="productControl">
+              <ng-container *ngIf="dropDownProduct.length<1; else showApplicableTo">
+                <mat-option disabled>No Data Found</mat-option>
+              </ng-container>
+              <ng-template #showApplicableTo>
+                <mat-option disabled>Select Product Type</mat-option>
+                <mat-option *ngFor="let product of dropDownProduct" [value]="product.productId"
+                  [innerText]="product.name"></mat-option>
+              </ng-template>
+            </mat-select>
+            <mat-error
+              *ngIf="formPreScheme.get('productControl')?.invalid">{{getErrorMessage('productControl')}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="standard" class="col">
+            <mat-label>Select Scheme</mat-label>
+            <mat-select formControlName="preSchemeControl">
+              <ng-container *ngIf="dropDownPreSchemes.length<1; else showGLData">
+                <mat-option disabled>No Data Found</mat-option>
+              </ng-container>
+              <ng-template #showGLData>
+                <mat-option disabled>Select for scheme data</mat-option>
+                <mat-option *ngFor="let preScheme of dropDownPreSchemes" [value]="preScheme.schemeId" [innerText]="preScheme.name"></mat-option>
+              </ng-template>
+            </mat-select>
+            <mat-error
+              *ngIf="formPreScheme.get('preSchemeControl')?.invalid">{{getErrorMessage('preSchemeControl')}}</mat-error>
+          </mat-form-field>
+
+          <div class="col d-flex align-items-center">
+            <button class="btn btn-primary" style="width: 100px">COPY</button>
+          </div>
+          <div class="col"></div>
+        </form>
+        <div [id]="'accord'+schemeForm.id"
+         *ngFor="let schemeForm of schemeFormDetails"
+        [ngClass]="[
+        'd-flex flex-column p-3 my-1',
+        (schemeForm.editable?(schemeForm.isOpen?' my-4 click shadow':' click shadow-sm'):' dis-clr point-ui shadow-sm')
+        ]">
+          <div class="d-flex justify-content-between align-items-center point-ui" (click)="toggleAccord(schemeForm.id)">
+            <span [innerHTML]="schemeForm.formName"
+              [class]="schemeForm.isOpen?'me-4 fs-4 fw-bold text-uppercase':'me-4 fs-5 fw-light'"></span>
+            <button class="btn">
+              <i *ngIf="schemeForm.editable&&schemeForm.isOpen" class="mdi mdi-window-close fs-4 cls-btn"></i>
+              <i *ngIf="schemeForm.editable&&!schemeForm.isOpen" class="mdi mdi-chevron-right fs-5"></i>
+            </button>
+          </div>
+          <div [class]="schemeForm.isOpen && schemeForm.editable ? 'visible-on' : 'visible-off'">
+            <app-scheme-form-details *ngIf="schemeForm.id === 1" ></app-scheme-form-details>
+            <app-scheme-form-additional-details *ngIf="schemeForm.id === 2" ></app-scheme-form-additional-details>
+            <app-interest-configuration  *ngIf="schemeForm.id === 3" ></app-interest-configuration>
+            <app-interest-view [viewSaveScheme]="true" [hideButton]="true" *ngIf="schemeForm.id === 4" ></app-interest-view>
+            <app-charge-master [hideButton]="true" *ngIf="schemeForm.id === 5" ></app-charge-master>
+        </div>
+        </div>
+      </div>
+      <!-- <div class="d-none d-sm-block">
+        <div class="d-flex tab-nav">
+          <div class="vr"></div>
+          <div class="ms-3">
+            <div *ngFor="let schemeForm of schemeFormDetails"
+              [class]="'wd-100-ui d-flex justify-content-between my-3 px-3 py-2 lft-bd-round'+(schemeForm.editMode?'  shadow-sm edt-clr click-ui':(schemeForm.completed?' shadow-sm comp-clr click-ui':(schemeForm.editable?' shadow-sm click-ui':' dis-clr point-ui')))"
+              (click)="navigateTo(schemeForm.id)">
+              <span [innerHTML]="schemeForm.formName" class="me-4"></span>
+              <i *ngIf="schemeForm.completed&&!schemeForm.editMode" class="mdi mdi-check-circle"></i>
+              <i *ngIf="schemeForm.editMode" class="mdi mdi-pencil"></i>
+            </div>
+            <button (click)="setFormCompleteStatus(currentFormId)" class="btn">next</button>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="d-flex justify-content-center" *ngIf="!isViewOnly">
+      <button class="btn btn-success me-2" [disabled]="!isDisable" *ngIf="!tranId" (click)="generateTran()">Finish</button>
+      <button class="btn btn-success" [disabled]="!isDisable" *ngIf="tranId" (click)="sendBackReview()">Finish</button>
+      <button class="btn btn-secondary ms-2"  (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #NoDataTemplate>
+  <div class="d-flex justify-content-center p-5">
+    <app-no-data [noDataTitle]="'No pending scheme data found.'"></app-no-data>
+  </div>
+</ng-template>
+

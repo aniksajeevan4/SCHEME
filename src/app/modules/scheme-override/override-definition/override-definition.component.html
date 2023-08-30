@@ -1,0 +1,214 @@
+
+<div class="row mt-3">
+  <div class="col-12">
+
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="formOverrideDetails">
+          <div class="row pt-2">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="interestOverride"
+                (click)="setValue({name: 'Interest'},$event)">
+              <label class="form-check-label" for="exampleCheck1" style="padding-left:8px">
+                Interest Override
+              </label>
+              <div class="text-danger" style="margin-top:5px !important" *ngIf="overrideFlag && submitted ">
+                Any one override should be selected</div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="chargeOverride"
+                (click)="setValue({name: 'Charge'},$event)">
+              <label class="form-check-label" for="exampleCheck1" style="padding-left:8px">
+                Charges Override
+              </label>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="limitOverride"
+                (click)="setValue({name: 'Limit'},$event)">
+              <label class="form-check-label" for="exampleCheck1" style="padding-left:8px">
+                Limit Override
+              </label>
+            </div>
+          </div>
+          <div class="row pt-1">
+            <input type="hidden" formControlName="hideCheckbox" />
+          </div>
+
+          <div class="row pt-5">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <div class="user-box row px-3">
+                <select formControlName="schemeName" required>
+                  <option *ngFor="let  val of schemes" [value]="val.schemeId">{{val.schemeCode}}</option>
+                </select>
+                <label>Select Scheme &nbsp;<span class="text-danger">*</span></label>
+                <div class="text-danger" *ngIf="formOverrideDetails.get('schemeName')?.invalid && submitted ">
+                  {{getErrorMessage('schemeName')}}</div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-2">
+              <div class="user-box row px-3">
+                <select required formControlName="schemeOverrideApplicable" (change)="changeValue($event)">
+                  <!-- <option value="1">Specific Customer</option> -->
+                  <option value="2">Specific Region</option>
+                  <option value="3">Specific Zone</option>
+                  <option value="4">Specific Branches</option>
+                </select>
+                <label>Select scheme for &nbsp;<span class="text-danger">*</span></label>
+                <div class="text-danger"
+                  *ngIf="formOverrideDetails.get('schemeOverrideApplicable')?.invalid && submitted ">
+                  {{getErrorMessage('schemeOverrideApplicable')}}</div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="row pt-2" *ngIf="
+          formOverrideDetails.controls['schemeOverrideApplicable'].value ==
+          1
+        ">
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-2">
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-2">
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-2" style=" text-align: right">
+              <button class="btn btn-success" style="width: 70%" style="display: inline-block;width:70%">
+                Search Customer
+              </button>
+            </div>
+          </div>
+          <div class="row pt-2" [hidden]="
+              formOverrideDetails.controls['schemeOverrideApplicable'].value !=
+              1
+            ">
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-2">
+              <div class="user-box row px-3">
+                <input type="text" placeholder="" required="" />
+                <label>Customer Id &nbsp;<span class="text-danger">*</span></label>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-2">
+              <div class="user-box row px-3">
+                <input type="text" placeholder="" required="" />
+                <label>Phone Number &nbsp;<span class="text-danger">*</span></label>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-2">
+              <div class="user-box row px-3">
+                <input type="text" placeholder="" required="" />
+                <label>Customer name &nbsp;<span class="text-danger">*</span></label>
+              </div>
+            </div>
+
+
+          </div>
+          <div *ngIf="!viewDetails">
+            <div class="row  pt-2" *ngIf="
+                formOverrideDetails.controls['schemeOverrideApplicable'].value !=
+                '' && formOverrideDetails.controls['schemeOverrideApplicable'].value !=
+                1
+              ">
+              <div class="row pt-2">
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-2" style="font-weight: bold">
+                  {{ buttonLabel }}
+                </div>
+              </div>
+
+              <div class=" col-lg-4 col-md-6 col-sm-12 pb-2"></div>
+              <div class=" col-lg-4 col-md-6 col-sm-12 pb-2"
+                *ngIf="formOverrideDetails.controls['schemeOverrideApplicable'].value ==3">
+                <div class="user-box row px-3">
+                  <select formControlName="zone">
+                    <option [ngValue]="{id: val.zoneId, name: val.zone}" *ngFor="let val of zones.result">{{val.zone}}
+                    </option>
+                  </select>
+                  <label>Select Zone &nbsp;<span class="text-danger">*</span></label>
+                  <div class="text-danger" *ngIf="formOverrideDetails.get('zone')?.invalid && submitted ">
+                    {{getErrorMessage('zone')}}</div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-12 pb-2" *ngIf="formOverrideDetails.controls['schemeOverrideApplicable'].value == 2">
+                <div class="user-box row px-3">
+                  <select formControlName="region">
+                    <option [ngValue]="{id: val.regionId, name: val.region}" *ngFor="let val of regions.result">
+                      {{val.region}}</option>
+                  </select>
+                  <label>Select Region &nbsp;<span class="text-danger">*</span></label>
+                  <div class="text-danger" *ngIf="formOverrideDetails.get('region')?.invalid && submitted">
+                    {{getErrorMessage('region')}}</div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-12 pb-2" *ngIf="formOverrideDetails.controls['schemeOverrideApplicable'].value == 4">
+                <!-- <div class="user-box row px-3"> -->
+
+                  <ng-select class="col-10" [items]="branches" [searchable]="true" [multiple]="false"
+                  bindValue="branchId" bindLabel="branchName" [placeholder]="'Select Branch'" (keyup)="keyup($event)"
+                  formControlName="branch" >
+                </ng-select>
+                <div class="text-danger" *ngIf="formOverrideDetails.get('branch')?.invalid && submitted ">
+                  {{getErrorMessage('branch')}}
+                </div>
+
+                  <!-- <select formControlName="branch">
+                    <option [ngValue]="{id: val.branchId, name: val.branchName}" *ngFor="let val of branches.result">
+                      {{val.branchName}}</option>
+                  </select>
+                  <label>Select Branch &nbsp;<span class="text-danger">*</span></label>
+                  <div class="text-danger" *ngIf="formOverrideDetails.get('branch')?.invalid && submitted ">
+                    {{getErrorMessage('branch')}}</div> -->
+                <!-- </div> -->
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 pb-2" style="text-align: right;">
+                <button class="btn btn-success" style="display: inline-block;width:70%" (click)="addValues()">
+                  {{ buttonLabel }}
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </form>
+
+
+        <div class="row pt-2" *ngIf="
+              formOverrideDetails.controls['schemeOverrideApplicable'].value !=
+              1 
+            ">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="header">
+                <tr>
+                  <th>Sl No</th>
+                  <th>Name</th>
+                  <th>Code</th>
+                  <th *ngIf="!viewDetails">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngIf="valueList.length==0">
+                  <td colspan="4" style="text-align:center">No data found</td>
+                </tr>
+                <tr *ngFor="let data of valueList; let i = index">
+                  <td class="py-1">
+
+                    {{i}}
+                  </td>
+                  <td>{{data['name']}}</td>
+                  <td>
+                    {{data['id']}}
+                  </td>
+                  <td *ngIf="!viewDetails"> <i class="mdi mdi-delete mx-2" (click)="deleteChargeCode(i)"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

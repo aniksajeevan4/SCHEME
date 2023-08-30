@@ -1,0 +1,30 @@
+::ng-deep .custom {
+
+    overflow-y: auto;
+    max-height: 95%;
+    width: 100%;
+  }
+  .custom-modal-container {
+    z-index: 1050;
+  }
+  .larger-checkbox {
+    transform: scale(1.5); /* Increase the size by 1.5 times */
+  }
+  
+  // .user-box select.ng-dirty ~ label,
+  // .user-box select.ng-touched ~ label,
+  // .user-box select.ng-valid ~ label {
+  //   top: -20px;
+  //   left: 0;
+  //   color: #999;
+  //   font-size: 12px;
+  // }
+  .user-box select.ng-untouched ~ label,
+  .user-box select.ng-pristine ~ label,
+  .user-box select.ng-invalid ~ label {
+    top: -20px;
+    left: 0;
+    color: #999;
+    font-size: 12px;
+  }
+  // ng-untouched ng-pristine ng-invalid

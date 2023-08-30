@@ -1,0 +1,46 @@
+<form action="" [formGroup]="schemeEditForm">
+  <div class="modal-header">
+    <span class="fw-bold fs-5">Scheme Branch Limit</span>
+    <button type="button" class="btn-close cls-btn" mat-dialog-close aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <div class="row mt-3">
+      <div class="col-lg-6 col-md-12">
+        <div class="user-box row px-3">
+          <input formControlName="scheme">
+          <label>Scheme</label>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="user-box row px-3">
+          <input formControlName="branch">
+          <label>Branch Name</label>
+        </div>
+      </div>
+    </div>
+      <div class="row mt-3">
+      <div class="col-lg-6 col-md-12">
+        <div class="user-box row px-3">
+          <input formControlName="maximumAmount" maxlength="16" mask="separator.2" thousandSeparator=","  required>
+          <label>Maximum Amount</label>
+          <div class="text-danger" *ngIf=" subimitted && schemeEditForm.get('maximumAmount')?.invalid">
+            {{getErrorMessage('maximumAmount')}}</div>
+        </div>
+      </div>
+   
+
+    <div class="col-lg-6 col-md-12">
+      <div class="user-box row px-3">
+        <input matInput formControlName="activeLoans" maxlength="4" required>
+        <label>Active Loans</label>
+        <div class="text-danger" *ngIf="  subimitted && schemeEditForm.get('activeLoans')?.invalid">
+          {{getErrorMessage('activeLoans')}}</div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-success mx-2" (click)="onSaveClick()">Save</button>
+    <button class="btn btn-secondary mx-2" (click)="onClearClick()">Cancel</button>
+  </div>
+</form>

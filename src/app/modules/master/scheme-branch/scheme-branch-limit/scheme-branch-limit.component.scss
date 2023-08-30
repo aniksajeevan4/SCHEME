@@ -1,0 +1,46 @@
+.header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+  }
+  .table thead th {
+    color: #eeeaea;
+  }
+  
+  
+  //input outline color
+  // ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  //   color: rgb(34, 34, 34)!important;
+  //   // opacity: 1!important;
+  // }
+  
+  // //mat-input focused color
+  // ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  //   color: rgb(43, 43, 43)!important;
+  // }
+  
+  // // mat-label normal state style
+  // ::ng-deep .mat-form-field-label {
+  //   color: rgb(34, 34, 34)!important;
+  //   // color: $mainColor!important;
+  // }
+  
+  // // mat-label focused style
+  // ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  //   color: rgb(128, 128, 128)!important;
+  // }
+  // ::ng-deep .custom {
+  //   overflow-y: auto;
+  //   max-height: 55%;
+  //   max-width: 15%;
+  // }
+  .custom{
+    width: 100%;
+    padding-left: 0px; 
+    padding-right: 2px;
+  }
+  ::ng-deep .ng-select-container .ng-value-container{
+
+    padding-left: 0px !important
+
+}

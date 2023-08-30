@@ -1,0 +1,46 @@
+//input outline color
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgb(34, 34, 34)!important;
+    // opacity: 1!important;
+  }
+  
+  //mat-input focused color
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: rgb(28, 67, 124)!important;
+  }
+  
+  // mat-label normal state style
+  ::ng-deep .mat-form-field-label {
+    color: rgb(34, 34, 34)!important;
+    // color: $mainColor!important;
+  }
+  
+  // mat-label focused style
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: rgb(28, 67, 124)!important;
+  }
+  
+  .hr-min-length{
+    width: 50px;
+  }
+  
+  .hr-wd-clr{
+    height: 5px;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-standard .mat-form-field-underline {
+    height: 0.5px;
+}
+
+::ng-deep .mat-form-field-ripple {
+   
+   background-color: none;
+   
+   }
+
+   
+::ng-deep mat-form-field.mat-focused .mat-form-field-ripple {
+   
+  background-color: none;
+  
+  }

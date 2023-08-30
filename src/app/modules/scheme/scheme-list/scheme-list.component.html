@@ -1,0 +1,119 @@
+<nav class="page-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Schemes</li>
+  </ol>
+</nav>
+<div class="card" style="min-height: 65vh;">
+  <div class="card-body">
+    <div class="container-fluid">
+      <div class="d-flex flex-column px-2">
+        <!-- <span class="fs-3 mb-4" [innerText]="'Scheme Details'"></span> -->
+        <form class="row pb-2" [formGroup]="formScheme">
+          <div class="row pt-2">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+            <mat-form-field appearance="standard" class="wd-100-ui">
+              <mat-label>Scheme Type</mat-label>
+              <mat-select formControlName="productControl"  (selectionChange)="onProductChange($event)">
+                <ng-container *ngIf="dropDownProduct.length<1; else showApplicableTo">
+                  <mat-option disabled>No Data Found</mat-option>
+                </ng-container>
+                <ng-template #showApplicableTo>
+                  <mat-option disabled>Select Product Type</mat-option>
+                  <mat-option *ngFor="let schemetype of dropDownProduct" [value]="schemetype.schemeTypeId"
+                    [innerText]="schemetype.schemeType"></mat-option>
+                </ng-template>
+              </mat-select>
+              <mat-error
+                *ngIf="formScheme.get('productControl')?.invalid">{{getErrorMessage('productControl')}}</mat-error>
+              </mat-form-field>
+              <div *ngIf="SchemeTypeval" class="text-danger pt-2px">Select Scheme Type</div><br>
+          </div>
+      
+            <div class="col-lg-3 col-md-6 col-sm-12">
+            <mat-form-field appearance="standard" style="width:100%">
+              <mat-label>Search Scheme</mat-label>
+              <input matInput placeholder="Search scheme name" formControlName="searchControl" >
+              <span matSuffix class="mdi mdi-magnify"></span>
+              <mat-error *ngIf="formScheme.get('searchControl')?.invalid">{{getErrorMessage('searchControl')}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-12 px-3 " style="margin-top:16px">
+            <button type="button" mat-button class=" btn-success shadow-sm rounded-5 click-ui" (click)="Searchbutton()">SEARCH</button>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 " style="margin-top:16px">
+            <button type="button" mat-button class=" btn-primary shadow-sm rounded-5 click-ui" (click)="goToSchemeEntryPageNew()">NEW SCHEME</button>
+            <button type="button" mat-button class=" btn-primary shadow-sm rounded-5 click-ui" style="margin-left:10px" (click)="goToSchemeEntryPage()">PENDING ENTRIES</button>
+          </div>
+        </div>
+        </form>
+        
+        <div class="row pb-2">
+          <!-- <ng-container *ngIf="schemeDetails.length>0; else dummytag"> -->
+            <div [ngClass]="['col d-flex align-items-center justify-content-start', schemeDetails.length>0 ? 'visible' : 'invisible']">
+              <label class="mx-2"> Show</label>
+              <select style="height: 30px; width: 45px; font-size: 13px; padding:5px" (change)="onTableSizeChange($event)">
+                <option *ngFor="let size of tableSizes">
+                  {{ size }}
+                </option>
+              </select>
+              <label class="mx-1">entries</label>
+          </div>
+          <!-- </ng-container> -->
+          <ng-template #dummytag>
+            <div class="col"></div>
+          </ng-template>
+        </div>
+
+        <div class="flex-grow-1">
+          <ng-container *ngIf="schemeDetails.length>0; else NoDataTemplate">
+            <table class="table table-bordered table-hover  table-striped">
+              <thead>
+                <tr class="header">
+                  <th class="text-center">#</th>
+                  <th class="text-center">Scheme type</th>
+                  <th class="text-center">Scheme Code</th>
+                  <th class="text-center">Effective From</th>
+                  <th class="text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody class="point-ui">
+                <tr class="text-center" *ngFor="let scheme of schemeDetails| paginate
+                    : {
+                        itemsPerPage: pageSize,
+                        currentPage: pageNo,
+                        totalItems: pageCount
+                      }; index as i;">
+                  <td scope="row" [innerText]="pageNo==1?i+1:(((pageNo-1)*pageSize)+i+1)"></td>
+                  <td [innerText]="scheme.schemeType"></td>
+                  <td [innerText]="scheme.schemeCode"></td>
+                  <td [innerText]="scheme.startDate| date:'dd MMM yyyy'"></td>
+                  <td>
+                    <button mat-icon-button (click)="goEditPage(scheme.schemeId)">
+                      <i class="feather icon-edit mx-2"></i>
+                    </button>
+                    <button mat-icon-button (click)="goViewPage(scheme.schemeId)">
+                      <i class="feather icon-eye mx-2"></i>
+                    </button>
+                    <button mat-icon-button (click)="Delete(scheme.schemeId)">
+                      <i class="mdi mdi-delete mx-2"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)"
+              class="d-flex justify-content-end mt-2">
+            </pagination-controls>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #NoDataTemplate>
+  <div class="d-flex justify-content-center p-5">
+    <app-no-data [noDataTitle]="'No scheme data available.'"></app-no-data>
+  </div>
+</ng-template>

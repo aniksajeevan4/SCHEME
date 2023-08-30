@@ -1,0 +1,172 @@
+<nav class="page-breadcrumb" *ngIf="!isViewOnly">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink=".">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink=".">Product Master</a></li>
+        <li class="breadcrumb-item active" aria-current="page" >Scheme Branch Limit</li>
+    </ol>
+</nav>
+
+<div class="card mt-2">
+    <div class="card-body d-flex flex-column">
+        <div class="container">
+            <form action="" [formGroup]="schemeBranch">
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-4 col-sm-4 ">
+                        <div class="user-box row px-3">
+                            <select formControlName="scheme" required>
+                                <ng-container *ngIf="!isDropdownDisplayed; else schemeLists">
+                                    <option disabled>Select Scheme</option>
+                                </ng-container>
+                                <ng-template #schemeLists>
+                                    <option *ngFor="let scheme of schemeList" [value]="scheme.schemeId"
+                                        [innerText]="scheme.name"></option>
+                                </ng-template>
+                            </select>
+
+                            <label>Scheme&nbsp;<span class="text-danger">*</span></label>
+
+                            <div class="text-danger" *ngIf=" submitted && schemeBranch.get('scheme')?.invalid">
+                                {{getErrorMessage('scheme')}}</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="user-box row px-3">
+                            <select [disabled]="isViewOnly" required>
+                                <option *ngFor="let getschemes of getschemes">{{getschemes.level}}</option>
+                            </select>
+                            <label> Level</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4"
+                        *ngIf="getschemes && getschemes.length > 0 && getschemes[0]?.groupTypeId === 1">
+                        <div class="user-box row px-3">
+                            <select [disabled]="isViewOnly" required>
+                                <option *ngFor="let getschemes of getschemes" value="{{ getschemes.groupTypeId }}">
+                                    {{getschemes.name}}</option>
+                            </select>
+                            <label>Select All Branch</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 "
+                        *ngIf="getschemes && getschemes.length > 0  && getschemes[0]?.groupTypeId === 2">
+                        <div class="user-box row px-3">
+                            <select [disabled]="isViewOnly" required>
+                                <ng-container *ngIf="getschemes.length < 1; else showCustomerTypeList">
+                                </ng-container>
+                                <ng-template #showCustomerTypeList>
+                                    <option disabled>Select Region</option>
+                                    <option *ngFor="let getschemes of getschemes" [value]="getschemes.groupTypeId"
+                                        [innerText]="getschemes.name"></option>
+                                </ng-template>
+                            </select>
+                            <label>Select Region</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4" *ngIf="getschemes[0]?.groupTypeId === 3">
+                        <div class="user-box row px-3">
+                            <select [disabled]="isViewOnly" required>
+                                <ng-container *ngIf="getschemes.length < 1; else showCustomerTypeList">
+                                </ng-container>
+                                <ng-template #showCustomerTypeList>
+                                    <option disabled>Select Zone</option>
+                                    <option *ngFor="let getschemes of getschemes" [value]="getschemes.groupTypeId"
+                                        [innerText]="getschemes.name"></option>
+                                </ng-template>
+                            </select>
+                            <label>Select Zone</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4" *ngIf="getschemes[0]?.groupTypeId === 4">
+                        <div class="user-box row px-3">
+                            <select [disabled]="isViewOnly" required>
+                                <ng-container *ngIf="getschemes.length < 1; else showCustomerTypeList">
+                                </ng-container>
+                                <ng-template #showCustomerTypeList>
+                                    <option disabled>Select Specific Branch</option>
+                                    <option *ngFor="let getschemes of getschemes" [value]="getschemes.groupTypeId"
+                                        [innerText]="getschemes.name"></option>
+                                </ng-template>
+                            </select>
+                            <label>Select Specific Branch</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-4 col-sm-4 ">
+                        <label for="" class="mx-1">Branch &nbsp;<span class="text-danger">*</span></label>
+                        <div class="user-box row px-3">
+                            <ng-select [items]="branches" class="custom form-field" [searchable]="true"
+                                [multiple]="false" bindValue="branchId" bindLabel="branchName"
+                                placeholder="Select a branch" formControlName="branch" (keyup)="keyup($event)" required>
+                            </ng-select>
+
+                            <div class="text-danger mt-2" *ngIf="submitted && schemeBranch.get('branch')?.invalid">
+                                {{ getErrorMessage('branch') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="user-box row px-3 mt-3">
+                            <input formControlName="maximumAmount" mask="separator.2" thousandSeparator=","
+                                maxlength="16" required>
+                            <label>Default Maximum Amount &nbsp;<span class="text-danger">*</span></label>
+                            <div class="text-danger" *ngIf=" submitted && schemeBranch.get('maximumAmount')?.invalid">
+                                {{getErrorMessage('maximumAmount')}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="user-box row px-3  mt-3">
+                            <input formControlName="activeLoans" maxlength="4" required>
+                            <label>Default Active Loans&nbsp;<span class="text-danger">*</span></label>
+                            <div class="text-danger" *ngIf=" submitted && schemeBranch.get('activeLoans')?.invalid">
+                                {{getErrorMessage('activeLoans')}}</div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end" *ngIf="!isViewOnly">
+                        <button class="btn btn-success mx-2" (click)="branchLimitApply()"
+                            [disabled]="disableButton">Add</button>
+                        <button class="btn btn-secondary mx-2" (click)="cancelSchemeCharge()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="table-responsive  mt-4 mx-4 ">
+            <table *ngIf="tableData.length>0 ; else NoDataTemplate"
+                class="table table-bordered table-hover table-responsive mt-3">
+                <thead>
+                    <tr class="header">
+                        <th class="text-center">Scheme</th>
+                        <th class="text-center">Branch Name</th>
+                        <th class="text-center">Maximum Amount</th>
+                        <th class="text-center">Active Loans</th>
+                        <th class="text-center" *ngIf="!isViewOnly">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of tableData; let i = index">
+                        <td class="text-center">{{getSchemeNameFromId (row.SchemeId)}}
+                        <td class="text-center">{{ getBranchNameFromId(row.BranchId) }}</td>
+                        <td class="text-center">{{row.MaxAmount}}
+                        <td class="text-center">{{row.MaxNumberOfLoan}}
+                        <td class="text-center" *ngIf="!isViewOnly">
+                            <i class="feather icon-edit mx-5" (click)="openEditModal(row)"></i>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <ng-template #NoDataTemplate>
+            <div class="d-flex justify-content-center p-5">
+                <app-no-data [noDataTitle]="'No scheme Branch Limit data found.'"></app-no-data>
+            </div>
+        </ng-template>
+        <div *ngIf="tableData.length > 0 && !isViewOnly" class=" d-flex justify-content-end col-lg-7  my-3">
+            <button class=" btn btn-primary mx-2" [disabled]="!isDisable" *ngIf="!tranId"
+                (click)="generateTran()">Save</button>
+            <button class="btn btn-success" [disabled]="!isDisable" *ngIf="tranId"
+                (click)="sendBackReview()">Update</button>
+        </div>
+    </div>
+</div>

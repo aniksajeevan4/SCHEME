@@ -1,0 +1,449 @@
+{
+    "1": {
+        "companyName": "MUTHOOTTU MINI FINANCIERS LTD",
+        "rbiLisence": "(RBI Licence-Regn No .N-16.00175)",
+        "branchTitle": "Branch : ",
+        "forOnlinePayment": "To Pay Interest Online Visit ",
+        "onlinePaymentSite": "www.muthoottumini.com",
+        "customerTitle": {
+            "from": "From,",
+            "name": "Name",
+            "proiession": "Proiession",
+            "dob": " D.O.B",
+            "address": " Address",
+            "phone": "Mob/Phone No.",
+            "email": "Email",
+            "nominee": "Nominee Name",
+            "relation": "Relation",
+            "nomineeAddress": "Nominee's Address",
+            "minorNominee": " In case of nominee is minor:(Name of guardian)"
+        },
+        "loanTitle": {
+            "loanDate": "Loan Date",
+            "customerId": "Customer lD",
+            "maxRatePerGm": " Max.Permitted Rate/gm",
+            "envelopNo": "Envelope No",
+            "loanNo": "Loan No",
+            "loanAmount": "Loan Amount(Rs.)",
+            "scheme": "Scheme",
+            "period": "Loan Period:",
+            "ratePerGm": "Rate/Gram",
+            "panNo": "Pan No."
+        },
+        "note1": {
+            "p1": "On Demand, I prornise to pay Muthoottu Mini Frnanciers Ltd or order a sum of ",
+            "p2": " with interest mentioned below as per the scheme"
+        },
+        "note2": "Affix revenue stamp of Re.1 for loan over Rs.5000",
+        "subHead1": "Description of ornament(s)(Item-count-Gross weight/Net Weight)",
+        "totalWeight": "Total gross weight/Total net weight :",
+        "subHead2": "Interest Rates if the entire interests is paid with in the stipulated period as follows",
+        "interestTitle": "Interest Rate :",
+        "annualInterestTitle": "Annualized Interest Rate :",
+        "note3": "After due date,interest will be charged @3% additional on the highest slab or @28% whichever is higher.Preparation of declaration in lieu of DPN-Fee Rs 150/-,Processing fee of loan,if interest is less than or equal to 15% then, upto Rs.10000-30/-,upto 1Lakh-45/-,upto 5Lakh-75/-above 5Lakh-100/- and if Greater than 15% then , upto Rs.10000-20/-,upto 1Lakh-35/-,upto 5Lakh-50/-above 5Lakh 65/- will be charged.",
+        "bankTitle": {
+            "header": "BANK DETAILS",
+            "bankAccount": "Bank A/C No. :",
+            "ifsc": " IFSC Code :"
+        },
+        "EmployeeAgreeTitle": {
+            "p1": "Appraised by us as above & granted loan of ",
+            "p2": "To Mr/Mrs ",
+            "p3": ".He/she came to our branch and disclosed his/her identity and address as above. We here by certify the same after verifying the deiails provided by him/her. He/she has declared in the application that he/she has the absolute ownership over the ornaments. Based on the declaration and subsequent verification of credentials {sales invoice/tele/field/reference if any), we have confirmed the borrowers ownership of the said ornaments",
+            "verifyingEmployee": "Name and Signature of the appraiser and verifying employee",
+            "sactionedEmployee": "Name and Signature of the sanctioning employee"
+        },
+        "customerAgreeTitle": {
+            "p1": " I agree to repay the loan with interest thereon with in a maximum period of",
+            "p2": "months (",
+            "p3": " Days) from the date thereof or as demanded by the Company. I declare that the above mentloned ornaments are my own. I have fully understood the terms and conditions relating the loan and I have received loan amount",
+            "verifyCustomer": "Signature of the Borrower"
+        },
+        "note4": "At the time of closure of Loan) Received back the ornament(s) pledged as collateral security against the aforementioned loan availed by me against surrender of customer copy of sanction letter.",
+        "mobileApp": "MyMuthoottu MobileApp"
+    },
+    "2": {
+        "companyName": "മുത്തൂറ്റ് മിനി ഫിനാൻസിയേഴ്‌സ് ലിമിറ്റഡ്",
+        "rbiLisence": "(ആർ‌ബി‌ഐ ലൈസൻസ് – രജി.നം:  . നം-16.00175)",
+        "branchTitle": "ബ്രാഞ്ച് : ",
+        "forOnlinePayment": "To Pay Interest Online Visit",
+        " onlinePaymentSite": "www.muthoottumini.com",
+        "customerTitle": {
+            "from": "ഫ്രം,",
+            "name": " പേര്",
+            "proiession": "തൊഴിൽ",
+            "dob": "ജനനദിനം",
+            "address": " വിലാസം",
+            "phone": "മൊബൈൽ നമ്പർ",
+            "email": "ഇമെയിൽ",
+            "nominee": "നോമിനിയുടെ പേര്",
+            "relation": "ബന്ധം",
+            "nomineeAddress": "നോമിനിയുടെ വിലാസം",
+            "minorNominee": "നോമിനി പ്രായപൂർത്തിയായിട്ടില്ലെങ്കിൽ രക്ഷകർത്താവിന്‍റെ പേര്"
+        },
+        "loanTitle": {
+            "loanDate": "വായ്പ തീയതി",
+            "customerId": "കസ്റ്റമർ ഐഡി",
+            "maxRatePerGm": "പരമാവധി അനുവദനീയമായ നിരക്ക്",
+            "envelopNo": "എൻവലപ്പ് നമ്പർ",
+            "loanNo": "വായ്പ നമ്പർ",
+            "loanAmount": "വായ്പ തുക(രൂപ)",
+            "scheme": "പദ്ധതി(സ്കീം)",
+            "Loan Period": "വായ്പ കാലാവധി:",
+            "ratePerGm": "നിരക്ക്/ഗ്രാം",
+            "panNo": "പാൻ നമ്പർ"
+        },
+        "note1": {
+            "p1": "മുത്തൂറ്റ്  മിനി ഫിനാൻസിയേഴ്  ലിമിറ്റഡ് ആവിശ്യപ്പെടുന്ന മുറയ്ക്ക്",
+            "p2": "രൂപ താഴെ പറയുന്ന പദ്ധതിയിൽ പറയുന്നതിനുസരിച്ചുള്ള പലിശ സഹിതം നൽകുന്നതാണെന്നു ഉറപ്പുനൽകുന്നു"
+        },
+        "note2": "5000 രൂപയിൽ കൂടുതലുള്ള വായ്പയ്ക്കായി ഒരു രൂപയുടെ റവ ന്യൂ സ്റ്റാമ്പ് പതിപ്പിക്കുക",
+        "subHead1": "ആഭരണങ്ങളുടെ വിശദവിവരങ്ങൾ ഇനം-എണ്ണം-മൊത്തം തൂക്കം/കൃത്യം തൂക്കം/(Net Weight)",
+        "totalWeight": "ആകെ മൊത്തം തൂക്കം/ ആകെ നെറ്റ് തൂക്കം:",
+        "subHead2": "പലിശ മുഴുവനും നിശ്ചിത തിയതിക്കുള്ളിൽ നല്കുകയാണെങ്കിൽ പലിശ നിരക്ക് താഴെ പറയുന്ന വിധേയമായിരിക്കും",
+        "interestTitle": "Interest Rate :",
+        "annualInterestTitle": "Annualized Interest Rate :",
+        "note3": "After due date,interest will be charged @3% additional on the highest slab or @28% whichever is higher.Preparation of declaration in lieu of DPN-Fee Rs 150/-,Processing fee of loan,if interest is less than or equal to 15% then, upto Rs.10000-30/-,upto 1Lakh-45/-,upto 5Lakh-75/-above 5Lakh-100/- and if Greater than 15% then , upto Rs.10000-20/-,upto 1Lakh-35/-,upto 5Lakh-50/-above 5Lakh 65/- will be charged.",
+        "bankTitle": {
+            "header": "ബാങ്ക് വിശദാംശങ്ങൾ",
+            "bankAccount": "Bank A/C No. :",
+            "ifsc": " IFSC Code :"
+        },
+        "EmployeeAgreeTitle": {
+            "p1": "മുകളിൽ പറഞ്ഞിരിക്കുന്ന പ്രകാരം ഞങ്ങൾ മൂല്യ നിർണയം നടത്തി 55000.00 രൂപയുടെ വായ്പ",
+            "p2": " ശ്രീ /ശ്രീമതി",
+            "p3": "വായ്പക്കാര് ഞങ്ങളുടെ ശാഖയിലേക്ക് വരികയും മേൽ പറഞ്ഞിരിക്കുന്ന വിധം തൻ്റെ/തങ്ങളുടെ പേരും വിലാസവും വെളിപ്പെടുത്തുകയും ചെയ്തു .അയാൾ /അവര് നല്കിയിരിക്കുന്ന വിശദാമംശങ്ങള് ഞങ്ങള്പരിശോധിച്ച് സാക്ഷ്യപ്പെടുത്തുകയും ചെയ്തു. ആഭരണങ്ങളുടെ മേൽസമ്പൂർണ്ണ ഉടമസ്ഥാവകാശം അയാൾ /അവര്ക്ക് ആണെന്ന് അപേക്ഷയിൽ വെളിപ്പെടുത്തുന്നു. ക്രെഡൻഷ്യലുകളുടെയും തുടർന്നുള്ള സ്ഥിരീകരണവും അടിസ്ഥാനമാക്കി (വിൽപ്പന ഇൻവോയ്സ് / ടെലി / ഫീൽഡ് / റഫറൻസ് ഉണ്ടെങ്കിൽ), മുകളിൽ പറഞ്ഞ ആഭരണകളിലെ  വാങ്ങുന്നയാളുടെ ഉടമസ്ഥാവകാശം ഞങ്ങൾ സ്ഥിരീകരിച്ചു",
+            "verifyingEmployee": "മൂല്യ നിർണ്ണയക്കാരന്‍റെയും സ്ഥിരീകരിക്കുന്ന ജീവനക്കാരന്‍റെയും പേരുംഒപ്പും",
+            "sactionedEmployee": "അനുമതി നൽകുന്ന ജീവനക്കാരന്‍റെ  പേരുംഒപ്പും"
+        },
+        "customerAgreeTitle": {
+            "p1": " വായ്പ പലിശ സഹിതം ഈ തിയ്യതി മുതൽ",
+            "p2": "മാസങ്ങൾക്കുള്ളിൽ (",
+            "p3": "ദിവസങ്ങൾ) അഥവാ,കമ്പനിആവശ്യപ്പെടുന്ന മുറയ്ക്ക് തിരികെ നല്കുന്നതാണെന്ന് ഉറപ്പു നല്കുന്നു.മുകളിൽ സൂചിപ്പിച്ച ആഭരണങ്ങൾ എൻ്റെ സ്വന്തമാണെന്ന് ഞാൻ സാക്ഷ്യപ്പെടുത്തുന്നു. വായ്പയുമായി ബന്ധപ്പെട്ട നിബന്ധനകളും വ്യവസ്ഥകളും ഞാൻ പൂർണ്ണമായി മനസ്സിലാക്കുകയും വായ്പ തുക എനിക്ക് ലഭിക്കുകയും ചെയ്തു",
+            "verifyCustomer": "വായ്പക്കാരന്‍റെ ഒപ്പ്"
+        },
+        "note4": "(വായ്പ തീർപ്പാക്കുന്ന സമയത്ത്) അനുമതി കത്തിന്റെ ഉപഭോക്തൃ പകർപ്പ് സമർപ്പിക്കുന്നതിനെതിരെ ഞാൻ നേടിയ മേൽപ്പറഞ്ഞ വായ്പയ്ക്കെതിരെ കൊളാറ്ററൽ സെക്യൂരിറ്റിയായി പണയം വച്ച ആഭരണങ്ങൾ പൂർണമായും ക്രമമായും തിരികെ ലഭിച്ചു.",
+        "verifyCustomer": "വായ്പക്കാരന്‍റെ ഒപ്പ്",
+        "mobileApp": "MyMuthoottu MobileApp"
+    },
+    "3": {
+        "companyName": "MUTHOOTTU MINI FINANCIERS LTD",
+        "rbiLisence": "(RBI Licence-Regn No .N-16.00175)",
+        "branchTitle": "கிளை : ",
+        "forOnlinePayment": "To Pay Interest Online Visit",
+        "onlinePaymentSite": "www.muthoottumini.com",
+        "customerTitle": {
+            "from": "அனுப்புநர்ர்,",
+            "name": "பெயர",
+            "proiession": "தொழில்",
+            "dob": "பிறந்த தேதி",
+            "address": "முகவர",
+            "phone": "அலை/தொலைபேசி எண்",
+            "email": "மின்னஞ்சல்",
+            "nominee": "வாரிசுதாரர்பெர் யர",
+            "relation": "உறவுமுறை",
+            "nomineeAddress": "வாரிசுதாரர் முகவரி",
+            "minorNominee": " வாரிசுதாரர் மைர் னர் இருப்பின் பாதுகாவலர் பெயர்"
+        },
+        "loanTitle": {
+            "loanDate": "கடன் தேதி",
+            "customerId": "வாடிக்கையாளர் எண்",
+            "maxRatePerGm": "கிராமிற்குஅதிகபட்சட் அனுமதிக்கக் ப்பட்டட் தொக",
+            "envelopNo": "கவர்எர் ண",
+            "loanNo": "கடன் எண்",
+            "loanAmount": "கடன்தொகை ( ரூபாயில் )",
+            "scheme": "கடன் திட்டட் ம",
+            "period": "கடன் காலம்:",
+            "ratePerGm": "ரேட் / கிராம",
+            "panNo": "பான் அட்டை ட் எண்."
+        },
+        "note1": {
+            "p1": " கீழே குறிக்கப்பட்டுள்ள நகைக்கடன் திட்டத்தின்படி ரூ",
+            "p2": "மட்டும் வட்டியுடன் சேர்த்து முத்தூட்டு மினி பைனான்ஸியர்ஸ் லிமிடெட்டுக்கு அல்லது அவர்களின் உத்தரவின்படி கேட்கும் போது கொடுத்து விடுகின்றேன் என உறுதியளிக்கின்றேன்."
+        },
+        "note2": " ஒரு ருபாய் ரெவன்யு முத்திரை ஒட்டவும்",
+        "subHead1": "ஆபரணங்கள் பற்றிய விபரம் (பொருள் – எண்ணிக்கை -nமொத்த எடை / நிகர எடை)",
+        "totalWeight": "மொத்த முழு எடை / மொத்த நிகர எடை :",
+        "subHead2": "குறித்தகாலத்திற்குள் முழுவட்டி தொகையையும் செலுத்தப்படும் பட்சத்தில் கீழே குறிக்கப்பட்டுள்ள வட்டி விகிதம் பொருந்தும்",
+        "interestTitle": "Interest Rate :",
+        "annualInterestTitle": "Annualized Interest Rate :",
+        "note3": "After due date,interest will be charged @3% additional on the highest slab or @28% whichever is higher.Preparation of declaration in lieu of DPN-Fee Rs 150/-,Processing fee of loan,if interest is less than or equal to 15% then, upto Rs.10000-30/-,upto 1Lakh-45/-,upto 5Lakh-75/-above 5Lakh-100/- and if Greater than 15% then , upto Rs.10000-20/-,upto 1Lakh-35/-,upto 5Lakh-50/-above 5Lakh 65/- will be charged.",
+        "bankTitle": {
+            "header": "வங்கி விவரங்கள்",
+            "bankAccount": "வங்கி விவரங்கள. :",
+            "ifsc": "குறியீட்டு எண் :"
+        },
+        "EmployeeAgreeTitle": {
+            "p1": "மேற்சொன்ன நகைகள் எங்களால் மதிப்பீடு செய்யப்பட்டு, கடன்தொகை ரூ.",
+            "p2": "திரு/திருமதி ",
+            "p3": "அவர்களுக்கு வழங்கப்பட்டது. வாடிக்கையாளர் நேரடியாக வந்து தனது அடையாள மற்றும் விலாசத்திற்கான சான்றுகளை கொடுத்ததை நாங்கள் ஊர்ஜிதம் செய்து உறுதியளிக்கின்றோம். கடன்தாரர் அடகுவைத்த நகை தனக்கு உரிமையானது என்பதை விண்ணப்பப்படிவத்தில் உறுதிபட கூறியுள்ளார். கடன்தாரரின் உறுதிமொழியின் அடிப்படையில் மேற்கொண்டு விற்பனை ரஷீது / போன்கால் / கிடைத்த தகவல்கள் மூலம் கடன்தாரரின் உரிமையை உறுதிசெய்து கொண்டோம்.",
+            "verifyingEmployee": "மதிப்பீட்டா ட் ளர்பெர் யர் மற்றுற் ம் கையொப்பம் சரிபார்க்ர் குக் ம் அலுவலர",
+            "sactionedEmployee": "கடன் வழங்கியஊழியர் பெயர் மற்றுற் ம் கையொப்பம"
+        },
+        "customerAgreeTitle": {
+            "p1": " நகை அடமானம் வைத்த தேதியிலிருந்து அதிகபட்சமாக ",
+            "p2": "மாதத்திற்குள் (",
+            "p3": "நாள்களுக்குள்) அல்லது கம்பெனி கடனை திருப்பி செலுத்த வேண்டும் போதோ, அசல் மற்றும் வட்டியை செலுத்தி விடுகின்றேன் என உறுதியளிக்கின்றேன். மேலே சொன்ன நகைகள் அனைத்தும் எனக்கு உரிமைப்பட்டது ஆகும். நான் இந்த கடன் சம்பந்தமான அனைத்து விதிமுறைகளும் நன்கு அறிந்து கொண்டு கடன் தொகையை பெற்றுக்கொண்டேன்.",
+            "verifyCustomer": " கடன் வாங்கியவரின் கையொப்பம்"
+        },
+        "note4": "(கடனை திருப்பி செலுத்தும் நேரத்தில்) மேற்கூறிய  கடனுக்கு  ஈடாக வைக்கப்பட்ட அனைத்து நகைகளையும், நகைக்கடனுக்காக வழங்கிய ரஷீதை திருப்பிக்கொடுத்து, நகைகளை சரிபார்த்து பெற்றுக்கொண்டேன்.",
+        "verifyCustomer": " கடன் வாங்கியவரின் கையொப்பம்",
+        "mobileApp": "MyMuthoottu MobileApp"
+    },
+    "4": {
+        "companyName": "ముత్తూట్ మిని ఫైనాన్సియర్స్ లిమిటెడ",
+        "rbiLisence": "(ఆర్.బి.ఐ లైసెన్స్ – రిజిస్ట్రే షస్ట్రే న్ నెం : ఎన్-16.00175)",
+        "branchTitle": "శాఖ : ",
+        "forOnlinePayment": "To Pay Interest Online Visit",
+        "onlinePaymentSite": "www.muthoottumini.com",
+        "customerTitle": {
+            "from": "నుండి,",
+            "name": "పేరు",
+            "proiession": "వృత్తి:",
+            "dob": "పుట్టిన తేది",
+            "address": " చిరునామా:",
+            "phone": " మొబైల్ / ఫోన్ నెం:",
+            "email": "ఈమెయిల్:",
+            "nominee": "నామినీ పేరు:",
+            "relation": " సంబంధం:",
+            "nomineeAddress": " నామినీ చిరునామా:",
+            "minorNominee": "నామినీ  మైనర్ అయిన సందర్భంలో:(గార్డియన్ పేరు)"
+        },
+        "loanTitle": {
+            "loanDate": "లోన్ తేది :",
+            "customerId": "కస్టమర్ ఐడి:",
+            "maxRatePerGm": " గరిష్ఠ అంగీకరించిన రేటు / గ్రామ్: ",
+            "envelopNo": " ఎన్వలప్ నెం:",
+            "loanNo": " లోన్ నెం:",
+            "loanAmount": "లోన్ మొత్తం (రూ):",
+            "scheme": "స్కీమ్:",
+            "period": "లోన్ పీరియడ్:",
+            "ratePerGm": " రేటు / గ్రామ్: ",
+            "panNo": " పాన్ నెం :"
+        },
+        "note1": {
+            "p1": "నేను ముత్తూట్ మినీ ఫైనాన్షియర్స్ లిమిటెడ్ అడిగిన వెంటనే,  లేదా వారి ఆదేశానుసారం, స్కీమ్ లో తెలిపిన ప్రకారం క్రింద తెలియజేసిన విధంగా మొత్తం రూ:",
+            "p2": "వడ్డీ తో సహా చెల్లిస్తానని ఇందుమూలంగా వాగ్దానం చేస్తున్నాను. "
+        },
+        "note2": "రూ.5000 కు పైగా రుణానికి రూ.1 రెవెన్యూ స్టాంపు అతికించవలెను",
+        "subHead1": "నగలు వివరణ (ఐటమ్ -కౌంట్ –గ్రాస్ వెయిట్/నెట్ వెయిట్)",
+        "totalWeight": "మొత్తం గ్రాస్ వెయిట్/ మొత్తం నెట్ వెయిట్:",
+        "subHead2": "వడ్డీ రేట్లు  క్రింద తెలిపిన ప్రకారం నిర్ధారిత కాలవ్యవధిలో వడ్డీ చెల్లించబడినచో ",
+        "interestTitle": "Interest Rate :",
+        "annualInterestTitle": "Annualized Interest Rate :",
+        "note3": "After due date,interest will be charged @3% additional on the highest slab or @28% whichever is higher.Preparation of declaration in lieu of DPN-Fee Rs 150/-,Processing fee of loan,if interest is less than or equal to 15% then, upto Rs.10000-30/-,upto 1Lakh-45/-,upto 5Lakh-75/-above 5Lakh-100/- and if Greater than 15% then , upto Rs.10000-20/-,upto 1Lakh-35/-,upto 5Lakh-50/-above 5Lakh 65/- will be charged.",
+        "bankTitle": {
+            "header": "బ్యాంక్ వివరములు",
+            "bankAccount": "బ్యాంక్ ఎ/సి నెం. :",
+            "ifsc": " ఐ.ఎఫ్.ఎస్.సి కోడ్::"
+        },
+        "EmployeeAgreeTitle": {
+            "p1": "పైన తెలిపిన ప్రకారం, మా ద్వారా మూల్యాంకనం చేయబడి మరియు మా ద్వారా .",
+            "p2": " శ్రీ/శ్రీమతి",
+            "p3": "అతడు /ఆమె మా శాఖకు విచ్చేసినారు మరియు అతడు /ఆమె మాకు పైన తెలిపిన తమ గుర్తింపు మరియు చిరునామా మాకు తెలియజేసారు. అతడు /ఆమె ద్వారా అందించబడిన ఈ వివరములను మేము ప్రమాణితం చేయుచున్నాము. అతడు /ఆమె తమ దరఖాస్తు పత్రం లో సదరు నగలపై తమకు సంపూర్ణ యాజమాన్య హక్కులు కలవని ప్రకటించినారు. సదరు ప్రకటనపై ఆధారపడి మరియు తదనంతర ప్రమాణ పత్ర వివరములు (అమ్మకం ఇన్వాయిస్ /టెలి/ఫీల్డ్/రిఫరెన్స్ ఏదైనా ఉంటే) పరిశీలన పై ఆధారపడి, సదరు నగలపై రుణగ్రహీత యాజమాన్యాన్ని మేము నిర్ధారణ చేసాము.",
+            "verifyingEmployee": "మూల్యాంకనం చేసి, పరిశీలన చేసిన ఉద్యోగి యొక్క పేరు మరియు సంతకం ",
+            "sactionedEmployee": "అంగీకరించిన ఉద్యోగి యొక్క పేరు మరియు సంతకం"
+        },
+        "customerAgreeTitle": {
+            "p1": " నేను ఇందుమూలంగా రుణం మొత్తం, దానిపై చెల్లించవలసిన వడ్డీతో సహా కంపెనీ ద్వారా డిమాండ్ చేయబడిన తేదీ నుండి",
+            "p2": "నెలల (",
+            "p3": "రోజులు) గరిష్ట కాలవ్యవధి లోపల చెల్లించెదనని వాగ్దానం చేయుచున్నాను. నేను పైన తెలియజేయబడిన నగలు నా స్వంతం అని ప్రకటిస్తున్నాను. నేను రుణం మొత్తం గురించి సంబంధిత నియమ నిబంధనలు పూర్తిగా అర్ధం చేసుకున్నాను మరియు సదరు రుణం మొత్తాన్ని నేను అందుకున్నాను.",
+            "verifyCustomer": " రుణ గ్రహీత సంతకం"
+        },
+        "note4": " (రుణం క్లోజ్ చేస్తున్న సమయంలో) నేను శాంక్షన్ లెటర్ కస్టమర్ కాపీ సరెండర్ చేసి,  నేను తీసుకున్న పైన తెలియజేసిన రుణానికి అదనపు హామీగా తణకా పెట్టిన నా నగ(లు), తిరిగి అందుకున్నాను.",
+        "verifyCustomer": "రుణ గ్రహీత సంతకం",
+        "mobileApp": "MyMuthoottu MobileApp"
+    },
+    "5": {
+        "companyName": "मुथूट्टू मिनी फायनान्सर्स लिमिटेड",
+        "rbiLisence": "(आरबीआय परवाना – नोंदणी क्र: N-16.00175)",
+        "branchTitle": "शाखा : ",
+        "forOnlinePayment": "To Pay Interest Online Visit",
+        " onlinePaymentSite": "www.muthoottumini.com",
+        "customerTitle": {
+            "from": " प्रती,",
+            "name": "नाव :",
+            "proiession": "पेशा:",
+            "dob": "जन्मतारीख",
+            "address": "पत्ता:",
+            "phone": " मोबाईल/ फोन क्र. : ",
+            "email": " ई.मेल",
+            "nominee": " नामनिर्देशित व्यक्तीचे नाव:",
+            "relation": " नाते",
+            "nomineeAddress": "नामनिर्देशित व्यक्तीचा पत्ता",
+            "minorNominee": " नामनिर्देशित व्यक्ती अज्ञान असल्यास(पालकाचे नाव)"
+        },
+        "loanTitle": {
+            "loanDate": "कर्जाचा दिनांक:",
+            "customerId": "ग्राहक क्र.",
+            "maxRatePerGm": " कमाल ग्राह्य दर/ग्रॅम ",
+            "envelopNo": "लिफाफा क्र",
+            "loanNo": " कर्ज क्र",
+            "loanAmount": "कर्ज रक्कम (रु.)",
+            "scheme": "योजना",
+            "period": "  कर्ज कालावधी:",
+            "ratePerGm": "दर/ग्रॅम",
+            "panNo": " पॅन क्र."
+        },
+        "note1": {
+            "p1": " मागणीनुसार,मुथुट्टू फायनान्सेस लि. किंवा आदेशाला योजनेनुसार खाली दिल्याप्रमाणे व्याजासकट रु.",
+            "p2": " देण्याचे मी वचन देतो"
+        },
+        "note2": "रु. 5000 वरील कर्जासाठी 1 रु. चा रेव्हेन्यू स्टँप चिकटवा  ",
+        "subHead1": "दागिन्यांचे विवरण (डाग- संख्या- एकूण वजन/ निव्वळ वजन)",
+        "totalWeight": " एकूण वजन/ एकूण निव्वळ वजन)  :",
+        "subHead2": " खाली दिल्यानुसार संपूर्ण कालावधीचे व्याज दिले असल्यास व्याज दर",
+        "interestTitle": "Interest Rate :",
+        "annualInterestTitle": "Annualized Interest Rate :",
+        " note3": "After due date,interest will be charged @3% additional on the highest slab or @28% whichever is higher.Preparation of declaration in lieu of DPN-Fee Rs 150/-,Processing fee of loan,if interest is less than or equal to 15% then, upto Rs.10000-30/-,upto 1Lakh-45/-,upto 5Lakh-75/-above 5Lakh-100/- and if Greater than 15% then , upto Rs.10000-20/-,upto 1Lakh-35/-,upto 5Lakh-50/-above 5Lakh 65/- will be charged.",
+        "bankTitle": {
+            "header": " बँकेचा तपशील ",
+            "bankAccount": "बँक खाते क्र. :",
+            "ifsc": "आयएफएससी कोड :"
+        },
+        "EmployeeAgreeTitle": {
+            "p1": " रु.चे कर्ज श्री./ श्रीमती .",
+            "p2": " रु.चे कर्ज श्री./ श्रीमती",
+            "p3": " यांना कर्ज मंजूर करण्यात येते. त्यांनी आमच्या शाखेत येऊन स्वत:ची ओळख आणि पत्ता वरीलप्रमाणे असल्याचे उघड केले. त्यांनी दिलेल्या माहितीची पडताळणी करून आम्ही या माहितीच्या सत्यतेची ग्वाही देत आहोत. या दागिन्यांची संपूर्ण मालकी त्यांचीच असल्याचे त्यांनी अर्जात जाहीर केले आहे. या माहितीच्या आणि आवश्यक ओळखपत्रांची (विक्री चलन/टेलिफोन/फिल्ड/संदर्भ-काही असल्यास) छाननी केल्यानंतर,  या दागिन्यांची मालकी कर्जदाराकडे असल्याची पुष्टी आम्ही करत आहोत",
+            "verifyingEmployee": "मूल्यांकन करणाऱ्या आणि सत्यापित करणाऱ्या कर्मचाऱ्याचे नाव आणि स्वाक्षरी ",
+            "sactionedEmployee": " मंजुरी देणाऱ्याचे नाव आणि स्वाक्षरी"
+        },
+        "customerAgreeTitle": {
+            "p1": " निर्दिष्ट तारखेपासून किंवा कंपनीने मागणी केल्यानुसार",
+            "p2": " महिन्यांच्या(",
+            "p3": " दिवस) कमाल कालावधीमध्ये कर्ज आणि त्यावरील व्याजाची परतफेड करण्यास मी सहमत आहे. वर माहिती देण्यात आलेले दागिने हे माझ्या मालकीचे असल्याचे मी जाहीर करतो/करते.कर्जासंबंधातील सर्व अटी आणि नियम मला संपूर्णपणे समजले आहेत आणि कर्जाची रक्कम मला प्राप्त झाली आहे. ",
+            "verifyCustomer": " कर्जदाराची स्वाक्षरी"
+        },
+        "note4": " (कर्ज समाप्त करताना) मंजूर पत्राची ग्राहक पावती परत केल्यावर मी घेतलेल्या वर उल्लेखित कर्जासाठी सुरक्षा म्हणून तारण ठेवलेले दागिने मला परत मिळाले आहेत.",
+        "verifyCustomer": " कर्जदाराची स्वाक्षरी",
+        "mobileApp": "MyMuthoottu MobileApp"
+    },
+    "6": {
+        "companyName": "मुथूट्टू मिनी फाइनेंसर्स लिमिटेड",
+        "rbiLisence": "(RBI लाइसेंस – रजिस्ट्रेशन नंबर: N-16.00175)",
+        "branchTitle": "शाखा: ",
+        "forOnlinePayment": "To Pay Interest Online Visit",
+        " onlinePaymentSite": "www.muthoottumini.com",
+        "customerTitle": {
+            "from": " प्रेषक,",
+            "name": "नाम:",
+            "proiession": "पेशा: ",
+            "dob": " जन्मतिथि:",
+            "address": "पता:",
+            "phone": " मोबाइल/ फोन नंबर.",
+            "email": " ई-मेल:",
+            "nominee": " नॉमिनी का नाम",
+            "relation": "  रिश्ता:",
+            "nomineeAddress": " नॉमिनी का पता",
+            "minorNominee": "  नॉमिनी अल्पवयस्क हो तो:(अभिभावक का नाम)"
+        },
+        "loanTitle": {
+            "loanDate": "लोन की तिथि:",
+            "customerId": "ग्राहक पहचान पत्र:",
+            "maxRatePerGm": "अधिकतम स्वीकृत दर / ग्राम: ",
+            "envelopNo": "लिफाफा संख्या:",
+            "loanNo": "लोन संख्या:",
+            "loanAmount": "लोन की राशि (रुपये):",
+            "scheme": "योजना",
+            "period": "लोन की अवधि:",
+            "ratePerGm": "  दर / ग्राम:",
+            "panNo": " पैन नंबर:"
+        },
+        "note1": {
+            "p1": " माँग या आदेश किए जाने पर, मैं मुथूट्टू मिनी फाइनेंसर्स लिमिटेड को योजना के अनुसार नीचे दिए गए ब्याज के साथ कुल  रु",
+            "p2": " का भुगतान करने का वादा करता हूँ।"
+        },
+        "note2": "5000 रुपये से ज्यादा के लोन के लिए ₹1 का रेवेन्यू स्टांप चिपकाएँ",
+        "subHead1": "आभूषण/आभूषणों का विवरण (वस्तु– संख्या–सकल वजन / कुल वजन)",
+        "totalWeight": " सकल वजन / कुल वजन :",
+        "subHead2": "      यदि निर्धारित अवधि में पूरे ब्याज का भुगतान किया जाता है तो उसके लिए ब्याज दरें निम्नानुसार हैं:",
+        "interestTitle": "Interest Rate :",
+        "annualInterestTitle": "Annualized Interest Rate :",
+        " note3": "After due date,interest will be charged @3% additional on the highest slab or @28% whichever is higher.Preparation of declaration in lieu of DPN-Fee Rs 150/-,Processing fee of loan,if interest is less than or equal to 15% then, upto Rs.10000-30/-,upto 1Lakh-45/-,upto 5Lakh-75/-above 5Lakh-100/- and if Greater than 15% then , upto Rs.10000-20/-,upto 1Lakh-35/-,upto 5Lakh-50/-above 5Lakh 65/- will be charged.",
+        "bankTitle": {
+            "header": " बैंक विवरण",
+            "bankAccount": "बैंक अकाउंट नंबर: ",
+            "ifsc": " IFSC कोड:"
+        },
+        "EmployeeAgreeTitle": {
+            "p1": "हमारे द्वारा उपर्युक्त का मूल्यांकन किया गया और",
+            "p2": "श्री / श्रीमती ",
+            "p3": " रुपये के लोन की मंजूरी दी गई। वह हमारी शाखा में आए तथा अपनी पहचान एवं पते का विवरण प्रदान किया, जो ऊपर वर्णित है।  हम यहाँ उसके द्वारा दिए गए विवरणों के सत्यापन के बाद उसे प्रमाणित करते हैं। उन्होंने आवेदन में आभूषणों पर अपने पूर्ण स्वामित्व की घोषणा की है।  उनके द्वारा की गई घोषणा तथा बाद में दस्तावेजों के सत्यापन  (बिक्री चालान/ टेली/ घर जाकर/ संदर्भ, यदि कोई हो) के आधार पर, हमने लोन लेने वाले व्यक्ति के उक्त आभूषणों पर स्वामित्व की पुष्टि की है। रुपये के लोन की मंजूरी दी गई। वह हमारी शाखा में आए तथा अपनी पहचान एवं पते का विवरण प्रदान किया, जो ऊपर वर्णित है।  हम यहाँ उसके द्वारा दिए गए विवरणों के सत्यापन के बाद उसे प्रमाणित करते हैं। उन्होंने आवेदन में आभूषणों पर अपने पूर्ण स्वामित्व की घोषणा की है। उनके द्वारा की गई घोषणा तथा बाद में दस्तावेजों के सत्यापन (बिक्री चालान/ टेली/ घर जाकर/ संदर्भ, यदि कोई हो) के आधार पर, हमने लोन लेने वाले व्यक्ति के उक्त आभूषणों पर स्वामित्व की पुष्टि की है।",
+            "verifyingEmployee": " मूल्यांकक और सत्यापन करने  का नाम और हस्ताक्षर",
+            "sactionedEmployee": " स्वीकृत कर्मचारी का वाले  कर्मचारी  नाम और हस्ताक्षर"
+        },
+        "customerAgreeTitle": {
+            "p1": " मैं यहां वर्णित तिथि से, यह कंपनी द्वारा माँग किए जाने पर अधिकतम ",
+            "p2": "महीनों (",
+            "p3": " दिनों) की अवधि में ब्याज सहित लोन की राशि चुकाने के लिए सहमत हूँ। मैं घोषणा करता हूँ कि उपर्युक्त आभूषण मेरे अपने हैं। मैंने लोन से संबंधित नियमों व शर्तों को अच्छी तरह समझ लिया है और मुझे लोन की राशि मिल गई है। ",
+            "verifyCustomer": " लोन लेने वाले का हस्ताक्षर:"
+        },
+        "note4": "(लोन के समापन के समय) मैंने अनुमोदन पत्र की ग्राहक प्रति सौंपने के बाद, ऊपर वर्णित लोन की राशि के लिए जमानती सुरक्षा के तौर पर दिए गए आभूषण (आभूषणों) को वापस प्राप्त किया।",
+        "verifyCustomer": "लोन लेने वाले का हस्ताक्षर",
+        "mobileApp": "MyMuthoottu MobileApp"
+    },
+    "7": {
+        "companyName": "મુથૂટ મિનિ ફાઇનાન્સિયર્સ લિ",
+        "rbiLisence": "(આરબીઆઈ લાઇસન્સ – રજિ. નંબર: N-16.00175)",
+        "branchTitle": "(શાખા: ",
+        "forOnlinePayment": "To Pay Interest Online Visit",
+        " onlinePaymentSite": "www.muthoottumini.com",
+        "customerTitle": {
+            "from": "તરફથી,",
+            "name": "નામ",
+            "proiession": "વ્યવસાય",
+            "dob": " જન્મતારીખ",
+            "address": "   સરનામું:",
+            "phone": " મોબાઇલ/ફોન નંબર:",
+            "email": " ઇમેઇલ:",
+            "nominee": " નોમિનીનું નામ:",
+            "relation": " સંબંધ:",
+            "nomineeAddress": "  નોમિનીનું સરનામું:",
+            "minorNominee": "  નોમિની સગીર હોય તેવા કિસ્સામાં:(વાલીનું નામ)"
+        },
+        "loanTitle": {
+            "loanDate": "લોન તારીખ :",
+            "customerId": " ગ્રાહક ઓળખ પત્ર:",
+            "maxRatePerGm": " મહત્તમ મંજૂર દર/ગ્રામ: ",
+            "envelopNo": "એન્વેલોપ નંબર:",
+            "loanNo": " લોન નંબર:",
+            "loanAmount": "લોનની રકમ (રૂ.) :",
+            "scheme": "  યોજના:",
+            "period": " લોન સમયગાળો:",
+            "ratePerGm": "  દર/ગ્રામ:",
+            "panNo": "પાન નંબર:"
+        },
+        "note1": {
+            "p1": "માંગણી થવા પર, હું મુથૂટ્ટુ મિનિ ફાઇનાન્સિયર્સ લિમિટેડને યોજના મુજબ નીચે જણાવેલા વ્યાજ સાથે રૂ. ની  ",
+            "p2": "ચૂકવવાનું અથવા નિર્ધારિત કરવાનું વચન આપું છું."
+        },
+        "note2": "5000 રૂપિયાથી ઉપરની લોન માટે Re.1 નો રેવન્યુ સ્ટેમ્પ ચોંટાડો",
+        "subHead1": "આભૂષણ(ઓ)નું વર્ણન (આઇટમ-કાઉન્ટ - કુલ વજન/ચોખ્ખું વજન)",
+        "totalWeight": " કુલ એકંદર વજન/કુલ ચોખ્ખું વજન- :",
+        "subHead2": "નીચે મુજબ નિયત સમયગાળામાં જો સંપૂર્ણ વ્યાજ ચૂકવવામાં આવે તો વ્યાજના દરો",
+        "interestTitle": "Interest Rate :",
+        "annualInterestTitle": "Annualized Interest Rate :",
+        " note3": "After due date,interest will be charged @3% additional on the highest slab or @28% whichever is higher.Preparation of declaration in lieu of DPN-Fee Rs 150/-,Processing fee of loan,if interest is less than or equal to 15% then, upto Rs.10000-30/-,upto 1Lakh-45/-,upto 5Lakh-75/-above 5Lakh-100/- and if Greater than 15% then , upto Rs.10000-20/-,upto 1Lakh-35/-,upto 5Lakh-50/-above 5Lakh 65/- will be charged.",
+        "bankTitle": {
+            "header": "બેન્કની વિગત",
+            "bankAccount": " બેન્ક એકાઉન્ટ નંબર. :",
+            "ifsc": " આઈએફએસસી કોડ: :"
+        },
+        "EmployeeAgreeTitle": {
+            "p1": "   ઉપર મુજબ અમારા દ્વારા મૂલ્યાંકન થયું અને    રૂ. ",
+            "p2": "શ્રી/શ્રીમતીને ",
+            "p3": "ની લોન મંજૂર કરી. તે/તેણી અમારી શાખામાં આવ્યા અને ઉપર મુજબ તેમની ઓળખ અને સરનામું જાહેર કર્યું. અમે તેમના દ્વારા આપવામાં આવેલી વિગતોની ચકાસણી કર્યા પછી આ સાથે તેને પ્રમાણિત કરીએ છીએ. તેણે/ તેણીએ અરજીમાં જાહેર કર્યું છે કે તે ઘરેણાં ઉપર સંપૂર્ણ માલિકી ધરાવે છે. તેમની ઘોષણાના અને તે પછીની ઓળખાણપત્રો (સેલ્સ ઇનવોઇસ /ટેલિ/ક્ષેત્ર/ રેફરન્સ જો કોઈ હોય તો)ની ચકાસણીના આધારે, અમે લોનધારકની કથિત આભૂષણેની માલિકીની પુષ્ટિ કરી છે",
+            "verifyingEmployee": "મૂલ્યાંકનકાર અને ચકાસણી કરનાર કરનારકર્મચારીનું નામ અને સહી",
+            "sactionedEmployee": "  મંજૂર નામ અને સહી"
+        },
+        "customerAgreeTitle": {
+            "p1": " હું લોન તેની તારીખથી અથવા કંપની દ્વારા માંગણી પ્રમાણે મહત્તમ",
+            "p2": " મહિના (",
+            "p3": " દિવસ)ના સમયગાળામાં વ્યાજ સાથે ચુકવવા સંમત છું. હું જાહેર કરું છું કે ઉપરોક્ત આભૂષણો મારા પોતાના છે. હું લોન સંબંધિત નિયમો અને શરતોને સંપૂર્ણપણે સમજી ગયો છું અને મને લોનની રકમ મળી છે.",
+            "verifyCustomer": " લોનધારકની સહી"
+        },
+        "note4": "મંજૂરી પત્રની ગ્રાહક નકલ સોંપવા સામે મારા દ્વારા ઉપરોક્ત લોન સામે કોલેટરલ સિક્યોરિટી તરીકે ગિરવે મૂકાયેલા આભૂષણ(ઓ) પાછા મળ્યા",
+        "verifyCustomer": "લોનધારકની સહી ",
+        "mobileApp": "MyMuthoottu MobileApp"
+    }
+}

@@ -1,0 +1,86 @@
+"ornamentDetails": {
+  "totalNetWeight": 22.000,
+  "totalGrossWeight": 23.000000,
+  "customerPhotoUrl": "customer_photo\\300473558_2025_2023-07-122023_07_12_04_05_07.jpeg",
+  "ornamentUrl": null
+  "ornamentList": [
+    {
+      "name": "Baby Bangles",
+      "count": 1,
+      "grossWeight": 23.000000,
+      "netWeight": 22.000000,
+      "deductWeight": 1.000000,
+      "reason": "WAX",
+      "remarks": ""
+    }
+  ]
+},
+"customerDetails": {
+    "branch": "KER-CORPORATE KALOOR",
+    "name": "ARUNAROY",
+    "occupation": "Housewife",
+    "dob": "1985-04-04T00:00:00",
+    "addressLine1": "ADDRESS2HGFH",
+    "addressLine2": "ADDRESS2HGFH",
+    "addressLine3": null,
+    "mobileNumber": "9998822558",
+    "emailId": "aruna@gmail.com",
+    "nomineeName": "LAKSHMIA D",
+    "relationship": "Father",
+    "address": "JKADHGFA KSGFGA MASBFASGF",
+    "guardianName": null,
+    "customerId": 300473558,
+    "sequenceNumber": 300473559,
+    "pan": "ABCTY1234D",
+  },
+
+  "glAccountDetails":{
+    "loanDate": "2023-07-16T00:00:00",
+    "eligibleAmount": 150,
+    "envelopeNumber": 1234567,
+    "loanId": 25,
+    "loanNo": null,
+    "loanAmount": 1234,
+    "schemeCode": "Onam22",
+    "term": 2,
+    "description": "Months",
+    "ratePerGram": 75,
+    "pan": "ABCTY1234D",
+    "accountNumber": 885522993,
+    "ifsc": null
+  },
+
+"interestDetails": [
+  {
+    "fromDays": 0.00,
+    "toDays": 30.00,
+    "interestRate": 15.000000
+  },
+  {
+    "fromDays": 0.00,
+    "toDays": 60.00,
+    "interestRate": 19.000000
+  },
+  {
+    "fromDays": 0.00,
+    "toDays": 90.00,
+    "interestRate": 22.000000
+  }
+],
+"annualInterestDetails": [
+  {
+    "fromDays": 0.00,
+    "toDays": 30.00,
+    "annualInterestRate": 15.000000
+  },
+  {
+    "fromDays": 0.00,
+    "toDays": 60.00,
+    "annualInterestRate": 19.000000
+  },
+  {
+    "fromDays": 0.00,
+    "toDays": 90.00,
+    "annualInterestRate": 22.000000
+  }
+]

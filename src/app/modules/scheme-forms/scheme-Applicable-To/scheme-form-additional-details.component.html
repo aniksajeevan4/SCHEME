@@ -1,0 +1,217 @@
+<div class="card">
+  <div class="card-body">
+    <form class="container-fluid" [formGroup]="formSchemeAdditionalDetails" (ngSubmit)="validateForm()">
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field appearance="standard" style="width: 100%;" hideRequiredMarker="true">
+            <mat-label>Scheme Applicable To</mat-label>
+            <mat-select formControlName="schemeApplicableTypeControl"  [disabled]="viewOnly">
+              <ng-container *ngIf="DropDownApplicableTo.length<1; else showApplicableTo">
+                <mat-option disabled>No Data Found</mat-option>
+              </ng-container>
+              <ng-template #showApplicableTo>
+                <mat-option disabled>Select Applicable Type</mat-option>
+                <mat-option *ngFor="let applicableType of DropDownApplicableTo" [value]="applicableType.id"
+                  [innerText]="applicableType.description"></mat-option>
+              </ng-template>
+            </mat-select>
+            <mat-error
+              *ngIf="formSchemeAdditionalDetails.get('schemeApplicableTypeControl')?.invalid && Add">{{getErrorMessage('schemeApplicableTypeControl')}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    <ng-container *ngTemplateOutlet="SelectApplicableList"></ng-container>
+    <div class="px-2 pb-2 pt-2" *ngIf="showApplicableBranchList">
+      <table class="table table-bordered table-hover  table-striped">
+        <thead class="header">
+          <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">Branch ID</th>
+            <th scope="col">Branch Name</th>
+            <th *ngIf="!viewOnly">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="applicableTodetails && applicableTodetails.length == 0">
+          <tr >
+            <td colspan="13" class="text-center">
+              <span>No Data Added</span>
+            </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="applicableTodetails && applicableTodetails.length > 0">
+          <tr *ngFor="let branch of applicableTodetails; index as i;" class="text-center">
+            <th scope="row" [innerText]="i+1"></th>
+            <td [innerText]="branch.branchGroupId"></td>
+            <td [innerText]="branch.branchGroup"></td>
+            <td *ngIf="!viewOnly">
+              <i class="mdi mdi-delete mx-2 click-ui" (click)="removeApplicableToDetails(branch.branchGroupId)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="px-2 pb-2 pt-2" *ngIf="showApplicableZoneList">
+      <!-- <div class="d-flex align-items-center my-2">
+    <hr class="hr-min-length hr-wd-clr">
+    <span class="medium text-uppercase px-2">Applicable Zones</span>
+    <hr class="flex-grow-1 hr-wd-clr ">
+  </div> -->
+      <table class="table table-bordered table-hover  table-striped">
+        <thead class="header">
+          <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">Zone ID</th>
+            <th scope="col">Zone Name</th>
+            <th *ngIf="!viewOnly">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="applicableTodetails && applicableTodetails.length == 0">
+        <tr>
+          <td colspan="13" class="text-center">
+            <span>No Data Added</span>
+          </td>
+        </tr>
+      </tbody>
+        <tbody *ngIf="applicableTodetails.length>0">
+          <tr *ngFor="let zone of applicableTodetails; index as i;" class="text-center">
+            <th scope="row" [innerText]="i+1"></th>
+            <td [innerText]="zone.branchGroupId"></td>
+            <td [innerText]="zone.branchGroup"></td>
+            <td *ngIf="!viewOnly">
+              <i class="mdi mdi-delete mx-2 click-ui" (click)="removeApplicableToDetails(zone.branchGroupId)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="px-2 pb-2 pt-2" *ngIf="showApplicableRegionList">
+      <!-- <div class="d-flex align-items-center my-2">
+    <hr class="hr-min-length hr-wd-clr">
+    <span class="medium text-uppercase px-2">Applicable Regions</span>
+    <hr class="flex-grow-1 hr-wd-clr ">
+  </div> -->
+      <!-- <div class="p-2">
+    <span class="fs-5" [innerText]="'SELECTED REGIONS'"></span>
+  </div> -->
+      <table class="table table-bordered table-hover  table-striped">
+        <thead class="header">
+          <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">Region ID</th>
+            <th scope="col">Region Name</th>
+            <th *ngIf="!viewOnly">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="applicableTodetails && applicableTodetails.length == 0">
+          <tr >
+            <td colspan="13" class="text-center">
+              <span>No Data Added</span>
+            </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="applicableTodetails.length > 0">
+          <tr *ngFor="let region of applicableTodetails; index as i;" class="text-center">
+            <th scope="row" [innerText]="i+1"></th>
+            <td [innerText]="region.branchGroupId"></td>
+            <td [innerText]="region.branchGroup"></td>
+            <td *ngIf="!viewOnly">
+              <i class="mdi mdi-delete mx-2 click-ui" (click)="removeApplicableToDetails(region.branchGroupId)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="(formSchemeAdditionalDetails.get('schemeApplicableTypeControl')?.value !==1 && applicableTodetails.length <= 0 && submitted)" class="row">
+      <div  class="d-flex justify-content-center mt-2 text-danger">Please Add Details</div>
+    </div>
+
+    <div class="px-2 pb-2 pt-4">
+      <div class="d-flex justify-content-between align-items-center px-2" *ngIf="!viewOnly">
+        <span class="fs-5">Scheme Documents</span>
+        <button type="button" class="btn btn-primary px-2 mb-2" (click)="openModalForDocDetail()">Add Document</button>
+      </div>
+      <div class="pt-2">
+        <table class="table table-bordered table-hover  table-striped">
+          <thead class="header">
+            <tr class="text-center">
+              <th>#</th>
+              <th>From Amount</th>
+              <th>To Amount</th>
+              <th>Document Type</th>
+              <th>Mandatory</th>
+              <th *ngIf="!viewOnly">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="schemeDocuments && schemeDocuments.length == 0">
+            <tr >
+              <td colspan="13" class="text-center">
+                <span>No Data Added</span>
+              </td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="schemeDocuments.length>0">
+            <tr *ngFor="let doc of schemeDocuments; index as i;" class="text-center">
+              <td scope="row" [innerText]="i+1"></td>
+              <td [innerText]="doc.fromAmount"></td>
+              <td [innerText]="doc.toAmount"></td>
+              <td [innerText]="doc.documentType"></td>
+              <td [innerText]="doc.mandatory?'Mandatory':'Not Mandatory'"></td>
+              <td *ngIf="!viewOnly">
+                <i class="mdi mdi-delete mx-2 click-ui" (click)="removeDocDetails(i)"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+ 
+    <div *ngIf="schemeDocuments.length === 0 && submitted">
+      <div  class="d-flex justify-content-center mt-2 text-danger">Please Add Details</div>
+    </div>
+    <div class="d-flex justify-content-center p-4 my-3">
+      <button *ngIf="!viewOnly" mat-button class="click-ui btn-primary rounded-3 px-4"
+        (click)="validateForm()">{{isTran?'Continue':'Save'}}</button>
+      <button type="button" *ngIf="viewOnly" mat-button class="click-ui btn-primary rounded-3 px-4"
+        (click)="goToNextForm()">Next</button>
+    </div>
+  </div>
+
+<ng-template #NoDataTemplate1>
+  <div class="d-flex justify-content-center p-4">
+    <app-no-data [noDataTitle]="'No applicable data Added.'"></app-no-data>
+  </div>
+</ng-template>
+<ng-template #NoDataTemplate>
+  <div class="d-flex justify-content-center p-4">
+    <app-no-data [noDataTitle]="'No document details Added.'"></app-no-data>
+  </div>
+</ng-template>
+<ng-template #SelectApplicableList>
+  <form [formGroup]="formSchemeApplicableTo" class="container-fluid" (ngSubmit)="AddApplicableOption()"
+    *ngIf="(showApplicableZoneList || showApplicableRegionList || showApplicableBranchList) && !viewOnly">
+    <div class="row pt-2 px-1 pb-2">
+      <!-- <div class="col d-flex align-items-center">
+        <span class="fs-5 text-uppercase d-flex  align-items-end justify-content-start"
+          [innerText]="applicableOptionLabel"></span>
+      </div> -->
+
+      <div class="d-flex justify-content-end align-items-center px-2">
+        <ng-select class="col-4 px-4" [items]="DropDownApplicableList" [searchable]="true" [multiple]="true"
+          bindValue="branchGroupId" bindLabel="branchGroup" [placeholder]="applicableOptionLabel"
+          formControlName="schemeApplicableToControl" (keyup)="keyup($event)" required >
+        </ng-select>
+        <button mat-raised-button
+          class="btn btn-primary">{{applicableTodetails.length>0?'Update'+applicableHeadLabel:'Add
+          '+applicableHeadLabel}}</button>
+      </div>
+    </div>
+  </form>
+</ng-template>
+<ng-template #NoDataTemplateTable>
+  <div class="row">
+    <div class="d-flex justify-content-center mt-2"> No Data Added </div>
+  </div>
+</ng-template>

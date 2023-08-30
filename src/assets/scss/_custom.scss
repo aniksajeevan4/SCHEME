@@ -1,0 +1,88 @@
+// Write your custom css/scss here
+.user-box {
+    position: relative;
+   
+}
+
+ .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 14px;
+  color: BLACK;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid  #7987a1;
+  outline: none;
+  border-radius: 0%;
+  background: transparent;
+}
+.user-box select {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid   #7987a1;
+  ;
+  outline: none;
+  background: transparent;
+}
+.user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 14px;
+  color: black;
+  pointer-events: none;
+  transition: .5s;
+  margin-left: 15px;
+}
+
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #999;
+  font-size: 12px
+  ;
+}
+.user-box input:disabled ~ label {
+  top: -20px;
+  left: 0;
+  color: #999;
+  font-size: 12px;
+}
+.user-box select:disabled ~ label {
+  top: -20px;
+  left: 0;
+  color: #999;
+  font-size: 12px;
+}
+ 
+.user-box select:focus ~ label,
+.user-box select:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #999;
+  font-size: 12px;
+}
+.text-danger{
+    margin-top: -20px;
+    padding-left:0px;
+    font-size: smaller;
+}
+.canvas{
+  margin-top: -30px;
+  padding-left:0px;
+}
+
+.user-box input.ng-dirty ~ label,
+.user-box input.ng-valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #999;
+  font-size: 12px;
+}

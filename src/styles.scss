@@ -1,0 +1,136 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+
+// Global icon font
+@import "./assets/fonts/feather/style.css";
+
+
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+// // 3rd party plugins
+@import "~@mdi/font/css/materialdesignicons.min.css";
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import "~highlight.js/styles/googlecode.css";
+@import '~ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css';
+@import '~ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css';
+@import '~animate.css/animate.min.css';
+@import '~@fullcalendar/common/main.min.css';
+@import '~@fullcalendar/daygrid/main.min.css';
+@import '~@fullcalendar/timegrid/main.min.css';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import '~simplemde/dist/simplemde.min.css';
+@import "~metismenujs/scss/metismenujs";
+@import '~dropzone/dist/min/dropzone.min.css';
+@import '~quill/dist/quill.snow.css';
+@import '~angular-archwizard/styles/archwizard.css';
+@import '~simple-datatables/dist/style.css';
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+
+// NobleUI styles for LTR
+@import "./assets/scss/style";
+
+
+// NobleUI styles For RTL
+// @import "./assets/scss/style.rtl.css";
+
+.wd-100-ui {
+  width: 100%;
+}
+
+.ht-100-ui {
+  height: 100%;
+}
+
+.wd-ht-100-ui {
+  width: 100%;
+  height: 100%;
+}
+
+.bg-y {
+  background-color: #f1eb1d;
+}
+
+.cls-btn {
+  color: rgb(224, 52, 52);
+}
+
+.point-ui {
+  cursor: pointer;
+}
+
+.click-ui {
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(.98);
+  }
+}
+
+.btn-ui {
+  border-radius: 30%
+}
+
+.container-card-ui{
+  min-height: 65vh;
+}
+
+.shadow-neo-ui-1 {
+  border-radius: 0px;
+  background: #ffffff;
+  box-shadow:  5px 5px 15px #f5f5f5,
+               -5px -5px 15px #ffffff;
+}
+
+.btn-100-ui{
+  width: 100px;
+}
+
+.btn-150-ui{
+  width: 150px;
+}
+
+.text-justify-ui{
+  text-align: justify;
+}
+
+// .modal-backdrop{
+//   z-index: 1049;
+// }
+
+// width
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+// Track
+::-webkit-scrollbar-track {
+  background: #e8e6e6;
+}
+
+// Handle
+::-webkit-scrollbar-thumb {
+  background: rgb(181, 179, 179);
+}
+
+// Handle on hover
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(181, 179, 179);
+}
+
+.hr-min-length{
+  width: 50px;
+}
+
+.hr-wd-clr{
+  height: 5px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

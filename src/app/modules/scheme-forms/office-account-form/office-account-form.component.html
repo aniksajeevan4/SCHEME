@@ -1,0 +1,64 @@
+
+  <form class="container-fluid" [formGroup]="formSchemeDetails">
+  <div class="card">
+   <div class="card-body">
+  <!-- (ngSubmit)="validateForm()"> -->
+  <div class="row pt-2">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="user-box row px-3">
+          <input type="text" formControlName="schemeName" autoCaps required="" maxlength="10"
+              (keyup)="searchGlCode($event)">                 
+         <label>Scheme Code &nbsp;<span class="text-danger">*</span></label>
+         <div *ngIf="glCodeSearch" class="text-danger">
+          <div  *ngIf="glCodeSearch.statusCode==200 && glCodeSearch.result=='true'">{{glCodeSearch.message}}</div><br>
+         </div>
+          <div class="text-danger"
+          *ngIf="formSchemeDetails.get('schemeName')?.invalid && (formSchemeDetails.get('schemeName')?.touched || formSubmitted)">
+          {{getErrorMessage('schemeName')}}
+        </div>          
+        </div>
+     </div>
+
+    <div class="col-sm-6">
+      <div class="user-box row px-3">
+        <input type="text" formControlName="schemeDescription" required maxlength="30" autoCaps >
+        <label>Scheme Description &nbsp;<span class="text-danger">*</span></label>
+        <div class="text-danger"
+          *ngIf="formSchemeDetails.get('schemeDescription')?.invalid && (formSchemeDetails.get('schemeDescription')?.touched || formSubmitted)">
+          {{getErrorMessage('schemeDescription')}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row pt-2">
+    <div class="col-md-6 col-sm-6" style="margin-bottom: 30px;">
+  <mat-form-field appearance="standard" style="width: 100%;">
+    <mat-label [ngClass]="{'custom-label': true, 'label-empty': formSchemeDetails.get('schemeTransactionLabel')?.value === ''}">GL Code&nbsp;</mat-label>
+    <mat-select formControlName="schemeTransactionLabel" multiple >
+      <ng-container *ngIf=" dropDownGL.length < 1; else showGLcodeList">
+        <mat-option disabled>No Data Found</mat-option>
+      </ng-container>
+      <ng-template #showGLcodeList >
+        <mat-option *ngFor="let Gl of dropDownGL"
+          value="{{Gl.glCode}}">{{Gl.transactionLabel}}</mat-option>
+      </ng-template>
+    </mat-select>
+    <mat-error
+      *ngIf="formSchemeDetails.get('schemeTransactionLabel')?.invalid && (formSchemeDetails.get('schemeTransactionLabel')?.touched || formSubmitted)">
+      {{getErrorMessage('schemeTransactionLabel')}}</mat-error>
+  </mat-form-field>
+</div>
+</div>
+
+  <div class="row">
+    <div  class="col-12 d-flex justify-content-center my-3">
+      <button  *ngIf="!viewOnly" class="btn btn-primary mx-2 mt-3" style="width: 100px"
+      (click)="Submit()">Submit</button>
+      <p *ngIf="viewOnly" class="btn me-2" type="button">
+        <i class="mdi mdi-check-circle" style="color: green;"></i>Viewed successfully
+    </p>
+  </div>
+  </div>  
+ </div>
+ </div>
+</form>

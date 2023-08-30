@@ -1,0 +1,12 @@
+{
+  "name": "cis-search-customer",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^13.3.0",
+    "@angular/core": "^13.3.0"
+  },
+  "dependencies": {
+    "@angular/cli": "^16.1.4",
+    "tslib": "^2.3.0"
+  }
+}

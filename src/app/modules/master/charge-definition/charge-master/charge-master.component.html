@@ -1,0 +1,219 @@
+<nav class="page-breadcrumb" *ngIf="navBarHide==true">
+    <ol class="breadcrumb" *ngIf="!viewOnly">
+        <li class="breadcrumb-item"><a routerLink=".">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Charge Master</li>
+    </ol>
+</nav>
+
+
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form *ngIf="!hideButton && !overRide" [formGroup]="chargeViewFormCheckbox">
+                    <div class="row pt-2 px-2">
+                        <div class="col-lg-3 col-md-2 col-sm-2 pb-2">
+                            <input class="larger-checkbox" type="checkbox" formControlName="chkNewChargeCode">
+                            <label class="form-check-label px-2">New Charge Code</label>
+                        </div>
+                        <div class="col-lg-3 col-md-2 col-sm-2 pb-2" *ngIf="!hideButton">
+                            <input class="larger-checkbox" type="checkbox" formControlName="chkEditChargeCode">
+                            <label class="form-check-label px-2">Edit Charge Code</label>
+                        </div>
+                    </div>
+                    <div class="row pt-4 px-2" *ngIf="addEdit==false">
+                        <div class="col-lg-3 col-md-2 col-sm-2 pb-2">
+                            <input class="larger-checkbox" type="checkbox" formControlName="chkNewEffective">
+                            <label class="form-check-label px-2">New Effective Date</label>
+                        </div>
+                        <div class="col-lg-3 col-md-2 col-sm-2 pb-2">
+                            <input class="larger-checkbox" type="checkbox" formControlName="chkOldEffective">
+                            <label class="form-check-label px-2">Existing Effective Date</label>
+                        </div>
+                    </div>
+                </form>
+
+                <form [formGroup]="formChargeMaster">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 pt-2" *ngIf="addEdit || overRide">
+                            <div class="user-box row px-3 mt-2">
+                                <input type="text" formControlName="chargeCode" autoCaps required="" maxlength="5"
+                                    (keyup)="searchChargeCode($event)">
+                                <label>Enter Charge Code</label>
+                                <div *ngIf="chargeCodeSearch">
+                                    <small class="text-danger"
+                                        *ngIf="chargeCodeSearch.statusCode==200 && chargeCodeSearch.result=='true'">{{chargeCodeSearch.message}}</small><br>
+                                </div>
+                                <small class="text-danger"
+                                    *ngIf="submitted && formChargeMaster.get('chargeCode')?.invalid || formChargeMaster.get('chargeCode')?.touched">{{getErrorMessage('chargeCode')}}</small>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-lg-3" *ngIf="!addEdit">
+                            <mat-form-field appearance="standard" class="col-lg-12">
+                                <mat-label>Charge Code</mat-label>
+                                <mat-select formControlName="chargeCodeId" (selectionChange)="onClick()"
+                                    [disabled]="viewOnly !== false">
+                                    <ng-container *ngIf="chargeCode.length < 1; else showCustomerTypeList">
+                                        <mat-option disabled>No Data Found</mat-option>
+                                    </ng-container>
+                                    <ng-template #showCustomerTypeList>
+                                        <mat-option disabled>Select Charge Code</mat-option>
+                                        <mat-option *ngFor="let chargeCode of chargeCode"
+                                            [value]="chargeCode.chargeDefId"
+                                            [innerText]="chargeCode.chargeCode"></mat-option>
+                                    </ng-template>
+                                </mat-select>
+                            </mat-form-field>
+                        </div> -->
+                             <div class="col-lg-3 col-md-3 col-sm-3 pt-3" *ngIf="!addEdit">
+                                <div class="user-box  row px-3">
+                              <select formControlName="chargeCodeId" [attr.disabled]="viewOnly ? true : null" required="" (change)="onClick()" >
+                                <!-- <option value="-1" selected>Select Charge Code</option> -->
+                                <ng-container *ngIf="chargeCode.length < 1; else showCustomerTypeList">
+                                    <option disabled>No Data Found</option>
+                                </ng-container>
+                                <ng-template #showCustomerTypeList>
+                                    <option disabled>Select Charge Code</option>
+                                    <option *ngFor="let chargeCode of chargeCode"
+                                        [value]="chargeCode.chargeDefId"
+                                        [innerText]="chargeCode.chargeCode"></option>
+                                </ng-template>
+                              </select>
+                              <label>Select Charge Code</label>
+                              <small class="text-danger"
+                                *ngIf="formChargeMaster.get('chargeCodeId')?.invalid && submitted">{{getErrorMessage('chargeCodeId')}}</small>
+                            </div>
+                          </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 pt-1" *ngIf="addEdit || chardeEdit">
+                            <div class="row">
+                                <mat-form-field appearance="standard" class="wd-100-ui ps-3 pb-3"  hideRequiredMarker="true"
+                                    (click)="DPStart.open()">
+                                    <mat-label>Effective Date</mat-label>
+                                    <input matInput [matDatepicker]="DPStart" formControlName="effectiveDate"
+                                        [min]="maxFromDate" readonly>
+                                    <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                                    <mat-datepicker-toggle matSuffix [for]="DPStart"></mat-datepicker-toggle>
+                                    <mat-datepicker #DPStart></mat-datepicker>
+                                </mat-form-field>
+                                <small class="text-danger mx-3"
+                                    *ngIf="submitted && formChargeMaster.get('effectiveDate')?.invalid">{{getErrorMessage('effectiveDate')}}</small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-3 pb-2 pt-3" *ngIf="!addEdit && !chardeEdit">
+                            <div class="user-box  row px-3">
+                                <select formControlName="effectiveDateList" [attr.disabled]="viewOnly ? true : null">
+                                    <option value selected>Select Effective Date</option>
+                                    <option *ngFor="let fromdate of effctiveDate" value="{{fromdate}}">
+                                        {{ fromdate | date: 'dd/MM/yyyy' }}
+
+                                    </option>
+                                </select>
+                                <label>Effective Date</label>
+                             </div>
+                        </div>
+                        <div class="col-lg-3 pt-3" *ngIf="addEdit">
+                            <div class="user-box  row px-3">
+                          <select formControlName="ExistingChargeCodeCopy" required="" [disabled]="viewOnly !== false">
+                            <!-- <option value="-1" selected>Select Charge Code</option> -->
+                            <ng-container *ngIf="chargeCode.length < 1; else showCustomerTypeList">
+                                <option disabled>No Data Found</option>
+                            </ng-container>
+                            <ng-template #showCustomerTypeList>
+                                <option disabled>Select Charge Code</option>
+                                <option *ngFor="let chargeCode of chargeCode"
+                                    [value]="chargeCode.chargeDefId"
+                                    [innerText]="chargeCode.chargeCode"></option>
+                            </ng-template>
+                          </select>
+                          <label>Select Charge Code</label>
+                          <small class="text-danger"
+                            *ngIf="formChargeMaster.get('ExistingChargeCodeCopy')?.invalid && submitted">{{getErrorMessage('ExistingChargeCodeCopy')}}</small>
+                        </div>
+                      </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 pt-3" *ngIf="addEdit">
+                            <button *ngIf="viewOnly==false" class="btn btn-primary" style="width: 100%"
+                                (click)="onClick()">Copy Interest Rate Code</button>
+                        </div>
+                    </div>
+                </form>
+        <div class="table-responsive d-flex justify-content-end" *ngIf="!hideButton">
+            <button class="col-8 col-lg-2 col-md-3 col-sm-4 btn btn-success" *ngIf="viewOnly==false"
+                (click)="addOpenModal()" [disabled]='!addDisable'>Add Details</button>
+        </div>
+        <div class="table-responsive my-4" style="max-height: 400px; overflow-y: auto;">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr class="header">
+                        <th class="text-center">Charge Type</th>
+                        <th class="text-center">Def Charge Value</th>
+                        <th class="text-center">From Amount</th>
+                        <th class="text-center">To Amount</th>
+                        <th class="text-center">From Rate (%)</th>
+                        <th class="text-center">To Rate (%)</th>
+                        <th class="text-center">Min Charge </th>
+                        <th class="text-center">Max Charge </th>
+                        <th class="text-center">Charge Value Type</th>
+                        <th class="text-center">Charge On</th>
+                        <th class="text-center">Charge At</th>
+                        <th class="text-center">Transaction Label</th>
+                        <th class="text-center" *ngIf="hideButton==false && !viewOnly">Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="chargeCodeList.length >= 1;">
+                    <tr class="text-center" *ngFor="let chargeCodeList of chargeCodeList; let i = index">
+                        <td>{{ chargeCodeList.chargeTypeValue }}</td>
+                        <td>{{ chargeCodeList.defChargeValue | currency:'INR'}}</td>
+                        <td>{{ chargeCodeList.fromAmount | currency:'INR'}}</td>
+                        <td>{{ chargeCodeList.toAmount | currency:'INR'}}</td>
+                        <td>{{ chargeCodeList.fromRate}}</td>
+                        <td>{{ chargeCodeList.toRate}}</td>
+                        <td>{{ chargeCodeList.minChargeValue | currency:'INR'}}</td>
+                        <td>{{ chargeCodeList.maxChargeValue | currency:'INR'}}</td>
+                        <td>{{ chargeCodeList.chargeValueType }}</td>
+                        <td>{{ chargeCodeList.chargeOnValue }}</td>
+                        <td>{{ chargeCodeList.chargeAtValue }}</td>
+                        <td>{{ chargeCodeList.transactionLabel}}</td>
+                        <td class="text-center" *ngIf="hideButton==false && !viewOnly">
+                            <i class="feather icon-edit mx-2" *ngIf="!hideButton"
+                                (click)="editOpenModal(chargeCodeList,i)"></i>
+                            <i class="mdi mdi-delete mx-2" (click)="deleteChargeCode(i)"
+                                *ngIf="!hideButton"></i>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tbody *ngIf="chargeCodeList.length < 1">
+                    <tr  >
+                        <td colspan="13" class="text-center">
+                          <span>Select or Add Charge Code</span>
+                        </td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div *ngIf="chargeCodeList.length >= 1 && hideButton" class="row">
+            <div class="col-12 d-flex justify-content-center my-3">
+                <button class="btn btn-primary mx-2 mt-3" style="width: 100px" *ngIf="!viewOnly"
+                    (click)="saveChargeDefinition()">{{isTran?'Continue':'Save'}}</button>
+                    <button type="button" *ngIf="viewOnly" mat-button class="click-ui btn-primary rounded-3 px-4" (click)="goToNextForm()">Next</button>
+
+               </div>
+        </div>
+
+        <div class="table-responsive d-flex justify-content-end"
+            *ngIf="!hideButton && chargeCodeList.length >= 1 && !overRide">
+            <div class="col-12 d-flex justify-content-center my-3">
+                <button class="btn btn-primary mx-2 mt-3" style="width: 100px" *ngIf="!viewOnly"
+                    (click)="saveChargeDefinitionMaster()" [disabled]="!isDisable">Submit</button>
+      
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>

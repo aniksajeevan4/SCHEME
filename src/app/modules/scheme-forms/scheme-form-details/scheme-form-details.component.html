@@ -1,0 +1,323 @@
+<div class="card">
+  <div class="card-body">
+    <form class="container-fluid" [formGroup]="formSchemeDetails" (ngSubmit)="validateForm()">  
+      <div class="row pt-2"> 
+        <div class="col-sm-6">
+          <div class="col user-box row px-3 pt-2">
+            <select formControlName="schemeRepaymentType" required="">
+              <ng-container *ngIf="!loadView && dropDownRePaymentType.length<1; else showPaymentTypes">
+                <option disabled>No Data Found</option>
+              </ng-container>
+              <ng-template #showPaymentTypes>
+                <option *ngFor="let paymentType of dropDownRePaymentType" [value]="paymentType.id"
+                  [innerText]="paymentType.description"></option>
+              </ng-template>
+            </select>
+            <label>Re-payment Type &nbsp;<span class="text-danger">*</span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('schemeRepaymentType')?.invalid && (formSchemeDetails.get('schemeRepaymentType')?.touched || formSubmitted)">
+              {{getErrorMessage('schemeRepaymentType')}}</div>
+          </div>
+        </div>
+        <div class="col-sm-6 px-3">
+        <mat-form-field appearance="standard" style="width: 100%;">
+          <mat-label [ngClass]="{'custom-label': true, 'label-empty': formSchemeDetails.get('securityType')?.value === ''}">Security Type</mat-label>
+          <mat-select formControlName="securityType" multiple >
+            <ng-container *ngIf="!loadView && SecurityType.length < 1; else securityType">
+              <mat-option disabled>No Data Found</mat-option>
+            </ng-container>
+            <ng-template #securityType >
+              <mat-option *ngFor="let SecurityType of SecurityType"
+                value="{{SecurityType.securityTypeId}}">{{SecurityType.securityType}}</mat-option>
+            </ng-template>
+          </mat-select>
+          <mat-error
+            *ngIf="formSchemeDetails.get('securityType')?.invalid && (formSchemeDetails.get('securityType')?.touched || formSubmitted)">
+            {{getErrorMessage('securityType')}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    
+      <div class="row pt-4 align-items-center">
+        <div class="col-sm-3">
+          <div class="row">
+            <mat-form-field appearance="standard" class="wd-100-ui ps-3 pb-3 " (click)="DPStart.open()">
+              <mat-label [ngClass]="{'custom-label': true, 'label-empty': formSchemeDetails.get('schemeStart')?.value === ''}">Starting Date</mat-label>
+              <input matInput [matDatepicker]="DPStart" formControlName="schemeStart" [min]="thisDay" readonly>
+              <mat-datepicker-toggle matSuffix [for]="DPStart"></mat-datepicker-toggle>
+              <mat-datepicker #DPStart></mat-datepicker>  
+              <mat-error
+                *ngIf="formSchemeDetails.get('schemeStart')?.invalid">{{getErrorMessage('schemeStart')}}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="row">
+            <mat-form-field appearance="standard" class="wd-100-ui ps-3 pb-3  " (click)="DPEnd.open()">
+              <mat-label  [ngClass]="{'custom-label': true, 'label-empty':formSchemeDetails.get('schemeEnd')?.value === ''}">Ending Date</mat-label>
+              <input matInput [matDatepicker]="DPEnd" formControlName="schemeEnd" [min]="thisDay" readonly>
+              <mat-datepicker-toggle matSuffix [for]="DPEnd"></mat-datepicker-toggle>
+              <mat-datepicker #DPEnd></mat-datepicker>
+              <mat-error *ngIf="formSchemeDetails.get('schemeEnd')?.invalid">{{getErrorMessage('schemeEnd')}}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        
+        <div class="col-sm-3 ">
+          <div class="user-box row px-3">
+            <input type="number" formControlName="schemeMinAge" required>
+            <label>Min Age &nbsp;<span class="text-danger">*</span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('schemeMinAge')?.invalid && (formSchemeDetails.get('schemeMinAge')?.touched || formSubmitted)">
+              {{getErrorMessage('schemeMinAge')}}</div>
+          </div>
+        </div>
+    
+        <div class="col-sm-3">
+          <div class="user-box row px-3">
+            <input type="number" formControlName="schemeMaxAge" required>
+            <label>Max Age&nbsp;<span class="text-danger">*</span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('schemeMaxAge')?.invalid && (formSchemeDetails.get('schemeMaxAge')?.touched || formSubmitted)">
+              {{getErrorMessage('schemeMaxAge')}}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row pt-5 align-items-center">
+        <div class="col-sm-3">
+          <mat-checkbox formControlName="schemeTakeOver">Take Over Allowed</mat-checkbox>
+      </div>
+      <div class="col-sm-3">
+        <mat-checkbox formControlName="schemeNewCustomers" >New customer Allowed</mat-checkbox>
+      </div>
+        <div class="col-sm-3">
+          <mat-checkbox formControlName="schemeDormantCustomers">Dormant customer Allowed</mat-checkbox>
+        </div>
+        <div class="col-sm-3">
+          <mat-checkbox formControlName="schemeNewBranch">New Branch Only</mat-checkbox>
+      </div>
+    </div>
+    <div class="row pt-5 align-items-center">
+      <div class="col-sm-3">
+        <mat-checkbox formControlName="schemePrePaymentAllowed" (change)="onschemePrePaymentChange($event)">Pre-payment Allowed</mat-checkbox>
+    </div>
+    <div class="col-sm-3">
+      <div class="col user-box row px-3">
+        <input type="text" formControlName="PrePaymentPenalty" maxlength="5" mask="separator.2" required number>
+        <label>Penalty (%)&nbsp;<span class="text-danger"></span></label>
+        <div class="text-danger"
+          *ngIf="formSchemeDetails.get('PrePaymentPenalty')?.invalid && (formSchemeDetails.get('PrePaymentPenalty')?.touched || formSubmitted)">
+          {{getErrorMessage('PrePaymentPenalty')}}</div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <mat-checkbox formControlName="schemePreclosure" (change)="onschemePreclosureChange($event)">Pre-closure Allowed</mat-checkbox>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="col user-box row px-3">
+        <input type="text" formControlName="PreclosurePenalty" maxlength="5" mask="separator.2" required number>
+        <label>Penalty (%)&nbsp;<span class="text-danger"></span></label>
+        <div class="text-danger"
+          *ngIf="formSchemeDetails.get('PreclosurePenalty')?.invalid && (formSchemeDetails.get('PreclosurePenalty')?.touched || formSubmitted)">
+          {{getErrorMessage('PreclosurePenalty')}}</div>
+      </div>
+    </div>
+
+    </div>
+
+      <div class="row pt-4 align-items-center">
+        <!-- <div class="col-sm-3">
+          <mat-checkbox formControlName="schemeRefreshAllowed" (change)="onCheckboxChange($event)">Refresh Allowed</mat-checkbox>
+        </div>
+        <div class="col-sm-3 pb-3">
+            <mat-form-field appearance="standard" style="width: 100%;">
+              <mat-label>Refresh To</mat-label>
+              <mat-select formControlName="schemeRefreshTo" multiple>
+                <ng-container *ngIf="!loadView && dropDownRefreshTo.length < 1; else showRefreshToTypes">
+                  <option disabled>No Data Found</option>
+                </ng-container>
+                <ng-template #showRefreshToTypes >
+                 <mat-option *ngFor="let refreshTo of dropDownRefreshTo"
+                     value="{{refreshTo.schemeId}}">{{refreshTo.schemeCode}}</mat-option>
+                </ng-template>
+              </mat-select>
+              <mat-error
+                *ngIf="formSchemeDetails.get('schemeRefreshTo')?.invalid && (formSchemeDetails.get('schemeRefreshTo')?.touched || formSubmitted)">
+                {{getErrorMessage('schemeRefreshTo')}}</mat-error>
+            </mat-form-field>
+        </div> -->
+        <div class="col-sm-3">
+          <div class="user-box row px-3">
+            <select formControlName="durationTypeId" required="">
+              <!-- <option disabled>Select time</option> -->
+              <option *ngFor="let duration of durationTypeIds" [value]="duration.id" [innerText]="duration.title"></option>
+            </select>
+            <label>Term Type&nbsp;<span class="text-danger"></span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('durationTypeId')?.invalid && (formSchemeDetails.get('durationTypeId')?.touched || formSubmitted)">
+              {{getErrorMessage('durationTypeId')}}</div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="user-box row px-3">
+            <input type="number" formControlName="maxTerm" required number max="99999">
+            <label>Term &nbsp;<span class="text-danger"></span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('maxTerm')?.invalid && (formSchemeDetails.get('maxTerm')?.touched || formSubmitted)">
+              {{getErrorMessage('maxTerm')}}</div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="user-box row px-3">
+            <input type="text" formControlName="minAmount"  mask="separator.2" thousandSeparator=","
+              required maxlength="20">
+            <label>Min Amount&nbsp;<span class="text-danger"></span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('minAmount')?.invalid && (formSchemeDetails.get('minAmount')?.touched || formSubmitted)">
+              {{getErrorMessage('minAmount')}}</div>
+          </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="user-box row px-3">
+          <input type="text" formControlName="maxAmount" mask="separator.2" thousandSeparator="," required maxlength="20">
+          <label>Max Amount &nbsp;<span class="text-danger"></span></label>
+          <div class="text-danger"
+            *ngIf="formSchemeDetails.get('maxAmount')?.invalid && (formSchemeDetails.get('maxAmount')?.touched || formSubmitted)">
+            {{getErrorMessage('maxAmount')}}</div>
+        </div>
+      </div>
+      </div>
+      <div class="row pt-4 align-items-center">
+        <div class="col-sm-3">
+          <div class="col user-box row px-3">
+            <input type="text" formControlName="perGramRate" mask="separator.2"  maxlength="5" required number>
+            <label>Allowed Rate/gm (%)<span class="text-danger"></span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('perGramRate')?.invalid && (formSchemeDetails.get('perGramRate')?.touched || formSubmitted)">
+              {{getErrorMessage('perGramRate')}}</div>
+          </div>
+          </div>
+          </div>
+      <div class="row pt-6 align-items-center">
+        <div class="col-sm-6">
+          <div class="user-box row px-3">
+            <input type="text" formControlName="schemeMaxLoanAmount"  mask="separator.2" thousandSeparator=","
+            maxlength="20" number>
+            <label>Total Product Outstanding &nbsp;<span class="text-danger">*</span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('schemeMaxLoanAmount')?.invalid && (formSchemeDetails.get('schemeMaxLoanAmount')?.touched || formSubmitted)">
+              {{getErrorMessage('schemeMaxLoanAmount')}}</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="col user-box row px-3">
+            <input type="text" formControlName="schemeBranchMaxLoanAmount"  mask="separator.2" thousandSeparator="," maxlength="20" required number>
+            <label>Total Branch Outstanding &nbsp;<span class="text-danger">*</span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('schemeBranchMaxLoanAmount')?.invalid && (formSchemeDetails.get('schemeBranchMaxLoanAmount')?.touched || formSubmitted)">
+              {{getErrorMessage('schemeBranchMaxLoanAmount')}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2 align-items-center">
+        <div class="col-sm-6">
+          <div class="col user-box row px-3">
+            <input type="number" formControlName="schemeActiveLoan" maxlength="8" required number>
+            <label>Total Number of Loans&nbsp;<span class="text-danger">*</span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('schemeActiveLoan')?.invalid && (formSchemeDetails.get('schemeActiveLoan')?.touched || formSubmitted)">
+              {{getErrorMessage('schemeActiveLoan')}}</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="col user-box row px-3">
+            <input type="number" formControlName="schemeBranchActiveLoan" maxlength="8" required number>
+            <label>Branch Total Number of Loans&nbsp;<span class="text-danger">*</span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('schemeBranchActiveLoan')?.invalid && (formSchemeDetails.get('schemeBranchActiveLoan')?.touched || formSubmitted)">
+              {{getErrorMessage('schemeBranchActiveLoan')}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2 align-items-center">
+        <div class="col-sm-6">
+          <div class="user-box row px-3">
+            <select formControlName="schemeChannelId" required="">
+              <ng-container *ngIf="!loadView && dropDownChannelType.length<1; else showChannelTypes">
+                <option disabled>No Data Found</option>
+              </ng-container>
+              <ng-template #showChannelTypes>
+                <option *ngFor="let channelType of dropDownChannelType" [value]="channelType.id"
+                  [innerText]="channelType.description"></option>
+              </ng-template>
+            </select>
+            <label>Channel Type &nbsp;<span class="text-danger">*</span></label>
+            <div class="text-danger"
+              *ngIf="formSchemeDetails.get('schemeChannelId')?.invalid && (formSchemeDetails.get('schemeChannelId')?.touched || formSubmitted)">
+              {{getErrorMessage('schemeChannelId')}}</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="user-box row px-3">
+            <select formControlName="schemeValidation" >
+              <option *ngFor="let schemeValidationProcedure of schemeValidationProcedure" value="{{schemeValidationProcedure.id}}">
+                {{schemeValidationProcedure.description}}
+              </option>
+            </select>
+            <label>Validation Procedure</label>
+            <small class="text-danger"
+              *ngIf="formSchemeDetails.get('schemeValidation')?.invalid && formSubmitted">{{getErrorMessage('schemeValidation')}}</small>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center pb-3">
+        <div class="col-sm-6 px-3">
+            <mat-form-field appearance="standard" style="width: 100%;">
+              <mat-label [ngClass]="{'custom-label': true, 'label-empty': formSchemeDetails.get('schemeGenderType')?.value === ''}">Applicable Gender Type</mat-label>
+              <mat-select formControlName="schemeGenderType" multiple >
+                <ng-container *ngIf="!loadView && dropDownGenderType.length < 1; else showGenderList">
+                  <mat-option disabled>No Data Found</mat-option>
+                </ng-container>
+                <ng-template #showGenderList >
+                  <mat-option *ngFor="let gender of dropDownGenderType"
+                    value="{{gender.genderId}}">{{gender.description}}</mat-option>
+                </ng-template>
+              </mat-select>
+              <mat-error
+                *ngIf="formSchemeDetails.get('schemeGenderType')?.invalid && (formSchemeDetails.get('schemeGenderType')?.touched || formSubmitted)">
+                {{getErrorMessage('schemeGenderType')}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-6 px-3">
+          <mat-form-field appearance="standard" style="width: 100%;">
+            <mat-label [ngClass]="{'custom-label': true, 'label-empty': formSchemeDetails.get('schemeCustomerType')?.value === ''}">Applicable Customer Type</mat-label>
+            <mat-select formControlName="schemeCustomerType" multiple>
+              <ng-container *ngIf="!loadView && dropDownCustomerType.length<1; else showCustomerTypeList">
+                <mat-option disabled>No Data Found</mat-option>
+              </ng-container>
+              <ng-template #showCustomerTypeList>
+                <mat-option *ngFor="let customerType of dropDownCustomerType"
+                  value="{{customerType.id}}">{{customerType.description}}</mat-option>
+              </ng-template>
+            </mat-select>
+            <mat-error
+              *ngIf="formSchemeDetails.get('schemeCustomerType')?.invalid && (formSchemeDetails.get('schemeCustomerType')?.touched || formSubmitted)">
+              {{getErrorMessage('schemeCustomerType')}}</mat-error>
+          </mat-form-field>          
+        </div>
+
+      </div>
+      <div
+      class="d-flex justify-content-center">
+    <button *ngIf="!viewOnly" mat-button
+    class="click-ui btn btn-primary">{{isTran?'Continue':'Save'}}</button>
+  <button type="button" *ngIf="viewOnly" mat-button class="click-ui btn btn-primary"
+    (click)="goToNextForm()">Next</button>
+    </div>
+   </form>
+  </div>
+</div>

@@ -1,0 +1,187 @@
+<div class="row mt-3">
+  <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form *ngIf="!hideButton" [formGroup]="InterestViewFormCheckbox">
+          <div class="row pt-2 px-2" *ngIf="hideButtonOverride">
+            <div class="col-lg-3 col-md-2 col-sm-2 pb-2">
+              <input class="larger-checkbox" type="checkbox" formControlName="chkNewInterestCode"
+                (change)="chkNewInterestCode($event)">
+              <label class="form-check-label px-2">New Interest Code</label>
+            </div>
+            <div class="col-lg-3 col-md-2 col-sm-2 pb-2" *ngIf="!hideButton">
+              <input class="larger-checkbox" type="checkbox" formControlName="chkEditInterestCode"
+                (change)="chkEditInterestCode($event)">
+              <label class="form-check-label px-2" >Edit Interest Code</label>
+            </div>
+          </div>
+          <div class="row pt-4 px-2">
+            <div *ngIf="EditInterestCode" class="col-lg-3 col-md-2 col-sm-2 pb-2">
+              <input class="larger-checkbox" type="checkbox" formControlName="chkNewEffective" 
+                (change)="chkNewEffective($event)">
+              <label class="form-check-label px-2" >New Effective Date</label>
+            </div>
+            <div *ngIf="EditInterestCode" class="col-lg-3 col-md-2 col-sm-2 pb-2">
+              <input class="larger-checkbox" type="checkbox" formControlName="chkOldEffective"
+                (change)="chkOldEffective($event)">
+              <label class="form-check-label px-2">Existing Effective Date</label>
+            </div>
+          </div>
+        </form>
+        <form [formGroup]="InterestViewForm">
+          <div class="row pt-4">
+            <div *ngIf="AddInterestCode && !hideButton" class="col-lg-3 col-md-4 col-sm-4 pt-2">
+              <div class="user-box row px-3">
+                <input type="input" formControlName="TxtInterestRateCode" required="" autoCaps
+                  (keyup)="InterestCodeDdupCheck()" maxlength="10"/>
+                <label>Interest Rate Code</label>
+                <small class="text-danger"
+                  *ngIf="InterestViewForm.get('TxtInterestRateCode')?.invalid && submitted">{{getErrorMessage('TxtInterestRateCode')}}</small>
+                  <div  *ngIf="interestcodests==='true'" class="text-danger">Interest Code Already Exist</div>
+                </div>
+            </div>
+            <!-- <div *ngIf="OldEffectiveDate || NewEffectiveDate || hideButton" class="col-lg-4 col-md-6 col-sm-6 pb-2"> -->
+            <div *ngIf="OldEffectiveDate || NewEffectiveDate || hideButton" class="col-lg-3 col-md-6 col-sm-6 pb-2 pt-2">
+              <div class="user-box  row px-3">
+                <select formControlName="ExistingInterestRateCode" required="" (change)=onOptionChange()>
+                  <!-- <option value="-1" selected>Select Interest Rate Code</option> -->
+                  <option *ngFor="let InterestRateCode of InterestRateCode" value="{{InterestRateCode.interestDefId}}">
+                    {{InterestRateCode.interestCode}}
+                  </option>
+                </select>
+                <label>Select Interest Rate Code</label>
+                <small class="text-danger"
+                  *ngIf="InterestViewForm.get('ExistingInterestRateCode')?.invalid && submitted">{{getErrorMessage('ExistingInterestRateCode')}}</small>
+              </div>
+            </div>
+
+            <!-- <div *ngIf="AddInterestCode || NewEffectiveDate && !hideButton && hideButtonOverride" class="col-lg-3 col-md-4 col-sm-4">
+              <div class="user-box  row px-3 ">
+                <input type="date" formControlName="EffetivefromDate" [min]="TodayDate" max="9999-12-31"/>
+                <label>Effetive From</label>
+                <small class="text-danger"
+                  *ngIf="InterestViewForm.get('EffetivefromDate')?.invalid && submitted">{{getErrorMessage('EffetivefromDate')}}</small>
+              </div>
+            </div> -->
+
+            <div *ngIf="AddInterestCode || NewEffectiveDate && !hideButton " class="col-lg-3 col-md-4 col-sm-4">
+                <mat-form-field appearance="standard" class="wd-100-ui" (click)="DPStart.open()"  hideRequiredMarker="true">
+               
+                  <mat-label>Effective Date</mat-label>
+                  <input matInput [matDatepicker]="DPStart" formControlName="EffetivefromDate"  [min]="TodayDate" max="9999-12-31" readonly>
+                  <mat-datepicker-toggle matSuffix [for]="DPStart"></mat-datepicker-toggle>
+                  <mat-datepicker #DPStart></mat-datepicker>
+              </mat-form-field>
+              <small class="text-danger" *ngIf="InterestViewForm.get('EffetivefromDate')?.invalid && submitted">{{getErrorMessage('EffetivefromDate')}}</small>
+            </div>
+            
+            <div *ngIf="OldEffectiveDate || hideButton" class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
+              <div class="user-box  row px-3">
+                <select formControlName="DdnOldEffectiveDate"  (change)=onChangeEffectivefromdate($event) required >
+                  <option value selected>Select Effective Date</option>
+                  <option *ngFor="let fromdate of fromdate" value="{{fromdate}}">
+                    {{fromdate}}
+                  </option>
+                </select>
+                <label>Effective Date</label>
+                <small class="text-danger"
+                  *ngIf="InterestViewForm.get('DdnOldEffectiveDate')?.invalid && submitted">{{getErrorMessage('DdnOldEffectiveDate')}}</small>
+              </div>
+            </div>
+            <div *ngIf="AddInterestCode && !hideButton" class="col-lg-3 col-md-6 col-sm-6 pb-2 pt-2">
+              <div class="user-box  row px-3">
+                <select formControlName="ExistingInterestRateCodeCopy" required="">
+                  <option *ngFor="let InterestRateCode of InterestRateCode" value="{{InterestRateCode.interestDefId}}">
+                    {{InterestRateCode.interestCode}}
+                  </option>
+                </select>
+                <label>Select Interest Rate Code</label>
+                <small class="text-danger"
+              *ngIf="InterestViewForm.get('ExistingInterestRateCodeCopy')?.invalid && copyvalid">{{getErrorMessage('ExistingInterestRateCodeCopy')}}</small>
+              </div>
+            </div>
+            <div *ngIf="AddInterestCode && !hideButton" class="col-lg-3 col-md-4 col-sm-6 pt-3">
+              <button *ngIf="viewOnly==false" class="btn btn-primary" style="width: 100%"
+                (click)="CopyFromExisting()">Copy Interest Rate Code</button>
+            </div>
+              <div *ngIf="AddInterestCode  || NewEffectiveDate || OldEffectiveDate" class="d-flex justify-content-end">
+              <button
+                *ngIf="viewOnly==false ||AddInterestCode==true || OldEffectiveDate==true || NewEffectiveDate==true"
+                class="btn btn-success " style="width: 100px" (click)="openLgModal()" [disabled]=viewOnly>Add Details</button>
+              <button
+                *ngIf="viewOnly==false || AddInterestCode==true  || OldEffectiveDate==true || NewEffectiveDate==true"
+                class="btn btn-secondary" style="width: 100px" style="margin-left: 5px;"
+                (click)="ClearDetails()"[disabled]=viewOnly>Clear Details</button>
+            </div>
+          </div>
+
+          <div *ngIf="AddInterestCode  || OldEffectiveDate || NewEffectiveDate || hideButton" class=" pt-4">
+                <div class="table-responsive my-4" style="max-height: 400px; overflow-y: auto;">
+                  <table class="table table-bordered table-striped">
+                <thead style="background-color:black;">
+                  <tr>
+                    <th class="text-center">From Days</th>
+                    <th class="text-center">To Days</th>
+                    <th class="text-center">Interest Rate (%)</th>
+                    <th class="text-center">Min Interest (%)</th>
+                    <th class="text-center">Max Interest (%)</th>
+                    <th class="text-center">Rebate (%)</th>
+                    <th class="text-center">Rebate Days</th>
+                    <th class="text-center">Grace Period (Days)</th>
+                    <th class="text-center">Overdue Interest Rate (%)</th>
+                    <th class="text-center">Penal Interest Rate (%)</th>
+                    <th  *ngIf= "!viewOnly && !hideButton" class="text-center">Actions</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngIf="schemeinterestRatebyid && schemeinterestRatebyid.length === 0 && hideButton">
+                    <td colspan="13" class="text-center">
+                      <span>Select Interest Definition</span>
+                    </td>
+                  </tr>
+                  <tr *ngIf="schemeinterestRatebyid && schemeinterestRatebyid.length === 0 && !hideButton">
+                    <td colspan="13" class="text-center">
+                      <span>Add Interest Definition</span>
+                    </td>
+                  </tr>
+                  <tr style="cursor:pointer;" *ngFor="let schemeinterestRatebyid of schemeinterestRatebyid; let i=index">
+                    <td class="text-center">{{schemeinterestRatebyid.fromDays}}</td>
+                    <td class="text-center">{{schemeinterestRatebyid.toDays }}</td>
+                    <td class="text-center">{{schemeinterestRatebyid.interestRate}}</td>
+                    <td class="text-center">{{schemeinterestRatebyid.minInterestValue}}</td>
+                    <td class="text-center">{{schemeinterestRatebyid.maxInterestValue}}</td>
+                    <td class="text-center">{{schemeinterestRatebyid.rebate}}</td>
+                    <td class="text-center">{{schemeinterestRatebyid.rebateDays}}</td>
+                    <td class="text-center">{{schemeinterestRatebyid.gracePeriod}}</td>
+                    <td class="text-center">{{schemeinterestRatebyid.overdueInterestRate}}</td>
+                    <td class="text-center">{{schemeinterestRatebyid.penalInterestRate}}</td>
+                    <td *ngIf= "!viewOnly && !hideButton"> <i class="feather icon-edit mx-2" (click)="openLgModalEdit(i)"></i>
+                      <i class="mdi mdi-delete mx-2"(click)="Deletevalues(i)"></i></td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div *ngIf="schemeinterestRatebyid && schemeinterestRatebyid.length>=1 || AddInterestCode || OldEffectiveDate || NewEffectiveDate || hideButton"
+            class="row">
+            <div  class="col-12 d-flex justify-content-center my-3" *ngIf="hideButtonOverride">
+              <button *ngIf="!viewOnly && hideButton" [disabled]="isConfirm" class="btn btn-primary mx-2 mt-3" style="width: 100px"
+                (click)="Submit()">{{isTran?'Continue':'Save'}}</button>
+              <button type="button" *ngIf="viewOnly && hideButton" mat-button class="click-ui btn-primary rounded-3 px-4"
+                (click)="goToNextForm()">Next</button>
+                <button *ngIf="!viewOnly && !hideButton" [disabled]="isConfirm" class="btn btn-primary mx-2 mt-3" style="width: 100px"
+                (click)="Submit()">Submit</button>
+            </div>
+          </div>
+          <div  class="col-12 d-flex justify-content-center my-3">
+          <p *ngIf="viewOnly && !hideButton" class="btn me-2" type="button">
+            <i class="mdi mdi-check-circle" style="color: green;"></i>Viewed successfully
+        </p>
+      </div>
+        </form>
+        </div>
+      </div>
+  </div>
+</div>
+

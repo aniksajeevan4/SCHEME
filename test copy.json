@@ -1,0 +1,124 @@
+{
+  "customerDetails": {
+    "customerId": "300197912",
+    "customerName": "ANIK",
+    "customerPhoneNumber": "2342342343"
+  },
+  "schemeDetails": {
+    "schemeId": "111",
+    "ratePerGram": 80,
+    "maxTerm": 2,
+    "glSubhead": "4",
+    "accountNumber": 4578578,
+    "durationTypeId": 2,
+    "durationType": "Months"
+  },
+  "ornamentDetails": {
+    "ornament": [
+      {
+        "ornament": "2",
+        "ornamentValue": "Chain",
+        "count": "12",
+        "purity": "2",
+        "purityValue": "916",
+        "carat": 4,
+        "caratValue": "22KT",
+        "deductWeight": "1.00",
+        "grossWeight": "12.00",
+        "netWeight": 11,
+        "ratePerGram": "100",
+        "deductReason": "2",
+        "eligibleWeight": 11,
+        "remarks": "",
+        "damaged": true,
+        "damageReason": "12",
+        "damageImage": "damaged_ornament_photo_temp\\300197912_6276_Chain_2023-08-022023_08_02_03_42_57.jpeg"
+      }
+    ],
+    "envelopeNumber": "E2222222",
+    "tareWeight": 11,
+    "totalNetWeight": 11,
+    "totalEligibleWeight": 11,
+    "ratePerGram": 80,
+    "ornamentUrl": "ornament_photo_temp\\300197912_6276_2023-08-022023_08_02_05_49_04.jpeg",
+    "customerPhotoUrl": "customer_photo_temp\\300197912_6276_2023-08-022023_08_02_05_49_09.jpeg",
+    "withBox": true
+  },
+  "loanDetails": {
+    "loanAmount": 32222,
+    "requestedAmount": "23456",
+    "term": 2,
+    "excessAmount": 8766,
+    "canvassedBy": "1",
+    "appraisedBy": "an01",
+    "durationTypeId": 2,
+    "durationType": "Months",
+    "loanId": 6276
+  },
+  "bankAccountDetails": {
+    "modeOfTransfer": 1,
+    "checkNumber": null,
+    "accountNumber": null,
+    "ifsc": null,
+    "isNewBankAccount": false,
+    "documentUrl": "",
+    "bankName": "",
+    "branchName": ""
+  },
+  "nomineeDetails": {
+    "relationshipId": 2,
+    "relationship": "Mother",
+    "prefixId": 1,
+    "namePrefix": "Mr",
+    "firstName": "ARUN",
+    "middleName": "",
+    "lastName": "XCVCXV",
+    "dob": "1987-04-12",
+    "genderId": 1,
+    "gender": "Male",
+    "countryId": 1,
+    "countryCode": 91,
+    "mobileNumber": "5435345345",
+    "address": "EEEE",
+    "pincode": 353545,
+    "isNewNominee": false,
+    "statusID": 0
+  },
+  "documentDetails": [
+    {
+      "documentTypeId": 4,
+      "documentType": "Field Verification Certificate",
+      "mandatory": true,
+      "fileName": "300197912_111_4_2023_08_02_05_06_58.pdf",
+      "uploaded": true,
+      "filePath": "Documents_temp\\300197912_111_4_2023_08_02_05_06_58.pdf"
+    },
+    {
+      "documentTypeId": 5,
+      "documentType": "Personal Loan",
+      "mandatory": false,
+      "fileName": null,
+      "uploaded": false,
+      "filePath": null
+    },
+    {
+      "documentTypeId": 6,
+      "documentType": "DPN Statement",
+      "mandatory": false,
+      "fileName": null,
+      "uploaded": false,
+      "filePath": null
+    }
+  ],
+  "otpVerificationDetails": {
+    "phoneNumber": "2342342343",
+    "OTPSource": 2,
+    "kycDocId": "2",
+    "kycNumber": "24342342342",
+    "verified": true
+  },
+  "intrestAndCharges": {
+    "intrestDetails": [],
+    "chargeDetails": []
+  }
+}

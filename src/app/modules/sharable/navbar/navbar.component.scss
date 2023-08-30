@@ -1,0 +1,33 @@
+.custom{
+  width: 100%;
+  padding-left: 0px; 
+  padding-right: 2px;
+}
+
+
+::ng-deep .ng-select.custom .ng-select-container .ng-value-container .ng-placeholder {
+padding-left: 0px;
+ color: black;
+
+ }
+
+ ::ng-deep .ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+
+box-shadow: none;
+
+}
+::ng-deep .ng-select.custom .ng-select-container {
+  border-top: hidden;
+ 
+ border-left: none;
+ 
+ border-right:none;
+ 
+ border-radius: 0;
+ 
+  border-bottom: solid 1px black;
+ 
+  }
+  ::ng-deep .ng-value-container .ng-input{
+      margin-left:-12px
+  }

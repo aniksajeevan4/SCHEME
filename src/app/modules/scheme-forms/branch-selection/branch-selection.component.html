@@ -1,0 +1,59 @@
+<form [formGroup]="formApplyToDetails" (ngSubmit)="onFormSubmit()">
+  <div class="modal-header">
+<span class="fw-bold fs-5">Select Branches</span>
+<button type="button" class="btn-close cls-btn" (click)="closeDialog()" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <mat-form-field appearance="standard" class="col mx-3">
+      <mat-label>Zone</mat-label>
+      <mat-select formControlName="docType">
+        <ng-container *ngIf="DropDownDocumentList.length<1; else showDocTypes">
+          <mat-option disabled>No Data Found</mat-option>
+        </ng-container>
+        <ng-template #showDocTypes>
+          <mat-option disabled>Select Zone</mat-option>
+          <mat-option *ngFor="let docType of DropDownDocumentList" [value]="docType.id"
+            [innerText]="docType.description"></mat-option>
+        </ng-template>
+      </mat-select>
+      <mat-error
+        *ngIf="formApplyToDetails.get('docType')?.invalid">{{getErrorMessage('docType')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="standard" class="col mx-3">
+      <mat-label>Region</mat-label>
+      <mat-select formControlName="docType">
+        <ng-container *ngIf="DropDownDocumentList.length<1; else showDocTypes">
+          <mat-option disabled>No Data Found</mat-option>
+        </ng-container>
+        <ng-template #showDocTypes>
+          <mat-option disabled>Select Region</mat-option>
+          <mat-option *ngFor="let docType of DropDownDocumentList" [value]="docType.id"
+            [innerText]="docType.description"></mat-option>
+        </ng-template>
+      </mat-select>
+      <mat-error
+        *ngIf="formApplyToDetails.get('docType')?.invalid">{{getErrorMessage('docType')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="standard" class="col mx-3">
+      <mat-label>Branch</mat-label>
+      <mat-select formControlName="docType">
+        <ng-container *ngIf="DropDownDocumentList.length<1; else showDocTypes">
+          <mat-option disabled>No Data Found</mat-option>
+        </ng-container>
+        <ng-template #showDocTypes>
+          <mat-option disabled>Select Branch</mat-option>
+          <mat-option *ngFor="let docType of DropDownDocumentList" [value]="docType.id"
+            [innerText]="docType.description"></mat-option>
+        </ng-template>
+      </mat-select>
+      <mat-error
+        *ngIf="formApplyToDetails.get('docType')?.invalid">{{getErrorMessage('docType')}}</mat-error>
+    </mat-form-field>
+  </div>
+</div>
+<div class="modal-footer">
+<button  type="button" class="btn btn-secondary click-ui" (click)="closeDialog()">Close</button>
+<button type="submit" class="btn btn-primary click-ui">Save</button>
+</div>
+</form>

@@ -1,0 +1,87 @@
+::ng-deep .ng-select .ng-select-container {
+    border-top: hidden;
+  
+    border-left: none;
+  
+    border-right: none;
+  
+    border-radius: 0;
+  
+    border-bottom: solid 1px  #7987a1;
+  }
+
+
+  ::ng-deep .ng-select .ng-select-container .ng-value-container {
+      padding-left: 0px;
+  }
+  ::ng-deep .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+      color: #000;
+  }
+  
+  ::ng-deep
+    .ng-select.ng-select-focused:not(.ng-select-opened)
+    > .ng-select-container {
+    box-shadow: none;
+  }
+
+  ::ng-deep .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 14px;
+    color: black;
+    pointer-events: none;
+    transition: .5s;
+    margin-left: 15px;
+  }
+
+  ::ng-deep .customeLabel {
+    margin-top: -14px;
+    margin-left:3px;
+    left: 5px;
+    color: #999;
+    font-size: 12px;
+  }
+  
+  ::ng-deep .mat-select-panel {
+    margin-top: 10%; /* Adjust the margin-top value as needed */
+  }
+  :ng-deep .custom-label {
+
+      font-size: 16px;
+      color: #999;
+      padding-bottom: 5px;
+  }
+
+  .custom-label {
+    top: -20px;
+    left: 0;
+    color: #999;
+    font-size: 16px;
+  }
+  .custom-label.label-empty {
+  
+    font-size: 14px;
+    color: black
+}
+::ng-deep .mat-form-field-required-marker {
+   color: red;
+   font-size: 14px;
+ }
+ .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap,
+.mat-form-field-appearance-outline.clicked .mat-form-field-outline-thick .mat-form-field-outline-start,
+.mat-form-field-appearance-outline.clicked .mat-form-field-outline-thick .mat-form-field-outline-end,
+.mat-form-field-appearance-outline.clicked .mat-form-field-outline-thick .mat-form-field-outline-gap,
+.mat-form-field-appearance-outline.hovered .mat-form-field-outline-thick .mat-form-field-outline-start,
+.mat-form-field-appearance-outline.hovered .mat-form-field-outline-thick .mat-form-field-outline-end,
+.mat-form-field-appearance-outline.hovered .mat-form-field-outline-thick .mat-form-field-outline-gap
+// .mat-form-field-appearance-outline.invalid .mat-form-field-outline-thick .mat-form-field-outline-start,
+// .mat-form-field-appearance-outline.invalid .mat-form-field-outline-thick .mat-form-field-outline-end,
+// .mat-form-field-appearance-outline.invalid .mat-form-field-outline-thick .mat-form-field-outline-gap 
+ {
+    border-width: 1px !important;
+    border-color: #000
+}

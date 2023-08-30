@@ -1,0 +1,99 @@
+ <form [formGroup]="formSchemeDocumentDetails" (ngSubmit)="onFormSubmit()">
+    <div class="modal-header">
+  <span class="fw-bold fs-5">Scheme Document Details</span>
+  <button type="button" class="btn-close cls-btn" (click)="closeDialog()" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+
+
+  <div class="row mt-3 mx-1 ">
+    <div class="col-lg-6 col-md-6 col-sm-6 pb-2 ">
+      <div class="user-box row  px-3 ">
+        <input type="text"  mask="separator.2" thousandSeparator="," formControlName="docFromAmountControl" required="" maxlength="20" />
+        <label>From Amount</label>
+        <small class="text-danger" *ngIf="submitted && formSchemeDocumentDetails.get('docFromAmountControl')?.invalid">{{getErrorMessage('docFromAmountControl')}}</small>
+      </div>
+    </div>
+
+
+    <div class="col-lg-6 col-md-6 col-sm-6 pb-2 ">
+      <div class="user-box row  px-3 ">
+        <input type="text"  mask="separator.2" thousandSeparator="," formControlName="docToAmountControl" required="" maxlength="20" />
+        <label>To Amount</label>
+        <small class="text-danger"
+          *ngIf="submitted &&formSchemeDocumentDetails.get('docToAmountControl')?.invalid">{{getErrorMessage('docToAmountControl')}}</small>
+          <small class="text-danger" *ngIf="isGreaterThanOtherValue()">To Amount must be greater than From Amount.</small>
+        </div>
+    </div>
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 pb-2 ">
+      <div class="user-box row  px-3 ">
+        <select formControlName="docType" required="">
+          <ng-container *ngIf="DropDownDocumentList.length<1; else showDocTypes">
+            <option disabled>No Data Found</option>
+          </ng-container>
+          <ng-template #showDocTypes>
+            <option disabled>Select Document type</option>
+            <option value="{{docType.idTypeId}}" *ngFor="let docType of DropDownDocumentList">
+              {{docType.documentType}}
+            </option>
+          </ng-template>
+        </select>
+        <label>Document type&nbsp;</label>
+        <small class="text-danger"
+          *ngIf="submitted && formSchemeDocumentDetails.get('docType')?.invalid">{{getErrorMessage('docType')}}</small>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+
+
+
+
+    <!-- <div class="row">
+      <mat-form-field appearance="standard" class="col mx-3">
+        <mat-label>From amount</mat-label>
+        <input type="text" matInput placeholder="From amount" mask="separator.2" thousandSeparator="," formControlName="docFromAmountControl">
+        <mat-error
+          *ngIf="formSchemeDocumentDetails.get('docFromAmountControl')?.invalid">{{getErrorMessage('docFromAmountControl')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" class="col mx-3">
+        <mat-label>To amount</mat-label>
+        <input type="text" matInput placeholder="To amount" mask="separator.2" thousandSeparator="," formControlName="docToAmountControl">
+        <mat-error
+          *ngIf="formSchemeDocumentDetails.get('docToAmountControl')?.invalid">{{getErrorMessage('docToAmountControl')}}</mat-error>
+      </mat-form-field>
+
+</div> -->
+    <div class="row">
+      <mat-form-field appearance="standard" class="col mx-3">
+        <mat-label>Document Type</mat-label>
+        <mat-select formControlName="docType">
+          <ng-container *ngIf="DropDownDocumentList.length<1; else showDocTypes">
+            <mat-option disabled>No Data Found</mat-option>
+          </ng-container>
+          <ng-template #showDocTypes>
+            <mat-option disabled>Select Document Type</mat-option>
+            <mat-option *ngFor="let docType of DropDownDocumentList" [value]="docType.idTypeId"
+              [innerText]="docType.documentType"></mat-option>
+          </ng-template>
+        </mat-select>
+        <mat-error
+          *ngIf="formSchemeDocumentDetails.get('docType')?.invalid">{{getErrorMessage('docType')}}</mat-error>
+      </mat-form-field>
+      <div class="col mx-3 pt-4">
+      <mat-checkbox class="pt-2" formControlName="docMandatory">Document is mandatory</mat-checkbox>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button  type="button" class="btn btn-secondary click-ui" (click)="closeDialog()">Close</button>
+  <button type="submit" class="btn btn-primary click-ui">Save</button>
+</div>
+  </form>

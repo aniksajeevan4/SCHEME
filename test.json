@@ -1,0 +1,149 @@
+{
+  "customerDetails": {
+    "customerId": "300473558",
+    "customerName": "ARUNA"
+  },
+  "schemeDetails": {
+    "schemeId": 10,
+    "ratePerGram": 75,
+    "gLSubhead": "Gold Loan",
+    "accountNumber": 885522993
+  },
+  "ornamentDetails": {
+    "ornament": [
+      {
+        "ornamentId": 1,
+        "sequenceNumber": 1,
+        "ornamentTypeId": 1,
+        "count": 2,
+        "purity": 3,
+        "purityValue": "OTHERS",
+        "carat": 4,
+        "caratValue": "22KT",
+        "deductWeight": 1.00,
+        "grossWeight": 23.00,
+        "netWeight": 22,
+        "ratePerGram": 100,
+        "deductReason": "anything",
+        "eligibleWeight": 22,
+        "remarks": "",
+        "damaged": false
+      }
+    ],
+    "envelopeNumber": 1234567,
+    "tareWeight": 2,
+    "ornamentUrl": "ornament_photo\\300473558_2025_2023-07-122023_07_12_04_04_58.jpeg",
+    "customerPhotoUrl": "customer_photo\\300473558_2025_2023-07-122023_07_12_04_05_07.jpeg",
+    "damagedOrnamnetUrl": "",
+    "totalNetWeight": 22,
+    "totalEligibleAmount": 22,
+    "eligibleAmount": 150
+  },
+  "loanDetails": {
+    "loanId": 0,
+    "requestedAmount": 234567,
+    "term": 2,
+    "excessAmount": 2345,
+    "loanAmount": 1234,
+    "canvassedBy": 1,
+    "appraisedBy": 1,
+    "customerId": 300473558
+  },
+  "bankAccountDetails": {
+    "modeOfTransfer": 1,
+    "accountNumber": "855996633",
+    "ifsc": "HDFC0000128",
+    "documentUrl": "",
+    "isNewBankAccount": true,
+    "bankName": "HDFC",
+    "branchName": "Kaloor"
+  },
+  "nomineeDetails": [
+    {
+      "customerId": 300473558,
+      "nomineeNumber": 1,
+      "relationshipId": 2,
+      "relationship": "Mother",
+      "prefixId": 2,
+      "namePrefix": "Mrs",
+      "firstName": "LAKSHMI",
+      "middleName": "",
+      "lastName": "A D",
+      "dob": "1978-04-05",
+      "genderId": 2,
+      "gender": "Female",
+      "countryId": 1,
+      "countryCode": 91,
+      "mobileNumber": "8774488526",
+      "address": "JKADHGFA KSGFGA MASBFASGF",
+      "pincode": 685214,
+      "isNewNominee": false,
+      "statusID": 0
+    }
+  ],
+  "documentDetails": [
+    {
+      "loanId": 0,
+      "documentTypeId": 1,
+      "uRL": "",
+      "number": 123,
+      "dateOfIssue": "2023-06-10T00:00:00",
+      "dateOfExpiry": "2023-12-10T00:00:00",
+      "status": 0
+    }
+  ],
+  "otpVerificationDetails": null,
+  "interestAndCharges": {
+    "interestDetails": [
+      {
+        "loanId": 0,
+        "interestDefId": 11,
+        "interestCode": "2",
+        "fromDate": "2023-06-10T00:00:00",
+        "fromDays": 0,
+        "toDate": "0001-01-01T00:00:00",
+        "toDays": 30,
+        "fromAmount": 0,
+        "toAmount": 150000,
+        "interestRate": 13,
+        "minInterestValue": 12,
+        "maxInterestValue": 15,
+        "rebate": 11,
+        "rebateDays": 28,
+        "gracePeriod": 30,
+        "overdueInterestRate": 32,
+        "penalInterestRate": 18,
+        "status": 0
+      }
+    ],
+    "chargeDetails": [
+      {
+        "loanId": 0,
+        "chargeDefId": 1,
+        "recoveryDate": "2023-12-12T00:00:00",
+        "chargeTypeId": 1,
+        "chargeCode": "",
+        "chargeTypeValue": "Processing Fee",
+        "amountSlab": 0,
+        "rateSlab": 1,
+        "chargeOnId": 1,
+        "chargeOnValue": "LoanAmount",
+        "chargeAtId": 1,
+        "chargeAtValue": "Sanction",
+        "fromAmount": 1,
+        "toAmount": 12,
+        "defChargeValue": 1,
+        "effectiveDate": "2012-12-12T00:00:00",
+        "fromRate": 1,
+        "toRate": 12,
+        "minChargeValue": 1,
+        "maxChargeValue": 1200,
+        "chargeValueTypeId": 1,
+        "chargeValueType": "Fixed",
+        "status": 0,
+        "tranLabelId": 1,
+        "transactionLabel": "Interest Recieved-23456"
+      }
+    ]
+  }
+}

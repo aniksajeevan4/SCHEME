@@ -1,0 +1,28 @@
+.header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+  }
+  .table thead th {
+    color: #eeeaea;
+  }
+  
+  ::ng-deep .ng-select-container{
+
+    border:none !important;
+  
+    border-bottom: 1px solid !important;
+  
+    padding: -9px !important;
+  
+    border-radius: 0px !important;
+  
+  }
+
+  ::ng-deep .ng-select-container{
+    border:none !important;
+    border-bottom: 1px solid !important;
+    padding: -9px !important;
+    border-radius: 0px !important;
+  }
+  

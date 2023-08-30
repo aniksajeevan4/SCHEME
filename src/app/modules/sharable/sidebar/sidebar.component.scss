@@ -1,0 +1,41 @@
+
+.sidebar-header{
+
+    width: 240px;
+    background-color:#f1eb1d;
+    background-position: right !important;
+    background-repeat: no-repeat !important;
+    border:none;
+    background-size: 240px auto !important;
+    padding:9px;
+    border:none;
+    background-color: #f1eb1d !important;
+   img{
+    width: 200px;
+    height: auto;
+   }
+
+}
+ ::ng-deep .sidebar-folded:not(.open-sidebar-folded) .sidebar .sidebar-header {
+    width: 70px;
+    background-image: none !important;
+    background: #f1eb1d !important;
+}
+
+::ng-deep.sidebar-dark .sidebar .sidebar-body{
+
+    background-color: #213b91 !important;
+}
+
+.sidebar-body-ui{
+    width: 100%;
+    background-color: #213b91;
+    color: #f1eb1d;
+}
+ .link-title{
+    color: yellow !important;
+}
+.sidebar .sidebar-body .sidebar-nav .nav-item > .nav-link .link-icon {
+    fill: none;
+    color: #6571ff;
+}
